@@ -1,0 +1,26 @@
+project:
+  type: book
+
+book:
+  title: "Econometrics"
+  subtitle: "3rd Year Undergraduate, ESOMAS, Uni Turin"
+  author: "Florian Oswald"
+  date: ""
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - mystyle.scss
+  pdf:
+    documentclass: scrreprt
+
+
+
