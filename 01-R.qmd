@@ -22,11 +22,9 @@ This introductory `R` chapter may feel like an overwhelming amount of informatio
 
 A key difference for you to understand is the one between `R`, the actual programming language, and `RStudio`, a popular interface to `R` which allows you to work efficiently and with greater ease with `R`.
 
-The best way to appreciate the value of `RStudio` is to start using `R` *without* `RStudio`. To do this, double-click on the R GUI that you should have downloaded on your computer following the steps above (on windows or Mac), or start R in your terminal (on Linux or Mac) by just typing `R` in a terminal, see figure \@ref(fig:console). You've just opened the R **console** which allows you to start typing code right after the `>` sign, called *prompt*. Try typing `2 + 2` or `print("Your Name")` and hit the return key. And *voilà*, your first R commands!
+The best way to appreciate the value of `RStudio` is to start using `R` *without* `RStudio`. To do this, double-click on the R GUI that you should have downloaded on your computer following the steps above (on windows or Mac), or start R in your terminal (on Linux or Mac) by just typing `R` in a terminal, see figure . You've just opened the R **console** which allows you to start typing code right after the `>` sign, called *prompt*. Try typing `2 + 2` or `print("Your Name")` and hit the return key. And *voilà*, your first R commands!
 
-```{r console, fig.cap="R GUI symbol and R in a MacOS Terminal",fig.align='center',out.width="50%",echo=FALSE}
-knitr::include_graphics(c("images/RLogo.png","images/console.png") )
-```
+
 
 
 Typing one command after the other into the console is not very convenient as our analysis becomes more involved. Ideally, we would like to collect all command statements in a file and run them one after the other, automatically. We can do this by writing so-called **script files** or just **scripts**, i.e. simple text files with extension `.R` or `.r` which can be *inserted* (or *sourced*) into an `R` session. RStudio makes this process very easy.
@@ -104,7 +102,7 @@ Note that we will use $\ln$ and $\log$ interchangeably to mean the natural logar
 
 In using `R` as a calculator, we have seen a number of functions: `sqrt()`, `exp()`, `log()` and `sin()`. To get documentation about a function in `R`, simply put a question mark in front of the function name, or call the function `help(function)` and RStudio will display the documentation, for example: 
 
-```{r, eval = FALSE}
+```r
 ?log
 ?sin
 ?paste
@@ -129,13 +127,13 @@ If you follow these steps, you will get your issue resolved much quicker, and po
 
 To install a package, use the `install.packages()` function. Think of this as buying a recipe book from the store, bringing it home, and putting it on your shelf (i.e. into your library):
 
-```{r, eval = FALSE}
+```r
 install.packages("ggplot2")
 ```
 
 Once a package is installed, it must be loaded into your current `R` session before being used. Think of this as taking the book off of the shelf and opening it up to read.
 
-```{r, message = FALSE, warning = FALSE}
+```r
 library(ggplot2)
 ```
 
@@ -156,7 +154,7 @@ Notice that you can simply copy and paste all the code you see into your `R` con
 
 Finally, please note that this way of showing output is fully our choice in this textbook, and that you should expect other output formats elsewhere. For example, in my `RStudio` console, the above code and output looks like this:
 
-```R
+```r
 > 1 + 3
 [1] 4
 ```
@@ -173,7 +171,7 @@ devtools::install_github(repo = "ScPoEcon/ScPoApps")
 
 In order to check whether everything works fine, you could load the library, and check it's current version:
 
-```{r,warning=FALSE,message=FALSE,eval=FALSE}
+```r
 library(ScPoApps)
 packageVersion("ScPoApps")
 ```
@@ -299,9 +297,10 @@ length(y)
 ```
 
 
-```{block type="warning"}
+::: {.callout-warning}
+
 Let's try this out! **Your turn**:
-```
+:::
 
 #### Task 1
 
@@ -602,9 +601,9 @@ example_data = data.frame(x = c(1, 3, 5, 7, 9, 1, 3, 5, 7, 9),
 
 Unlike a matrix, which can be thought of as a vector rearranged into rows and columns, a data frame is not required to have the same data type for each element. A data frame is a **list** of vectors, and each vector has a *name*. So, each vector must contain the same data type, but the different vectors can store different data types. Note, however, that all vectors must have **the same length** (differently from a `list`)!
 
-```{block, type="tip"}
+::: {.callout-tip}
 A **data.frame** is similar to a typical Spreadsheet. There are *rows*,  and there are *columns*. A row is typically thought of as an *observation*, and each column is a certain *variable*, *characteristic* or *feature* of that observation.
-```
+:::
 
 <br>
 Let's look at the data frame we just created above:
@@ -635,19 +634,20 @@ names(example_data)
 
 The `data.frame()` function above is one way to create a data frame. We can also import data from various file types in into `R`, as well as use data stored in packages.
 
-```{r, echo = FALSE}
+```{r}
+#| echo: false
 write.csv(example_data, "data/example-data.csv", row.names = FALSE)
-write.csv(example_data,"inst/datasets/example-data.csv", row.names=FALSE)
 ```
 
 To read this data back into `R`, we will use the built-in function `read.csv`:
 
-```{r, message = FALSE, warning = FALSE}
-path = system.file(package="ScPoEconometrics","datasets","example-data.csv")
+```{r}
+#| message: false
+#| warning: false
+path = "./data/example-data.csv"
 example_data_from_disk = read.csv(path)
 ```
 
-This particular line of code assumes that you installed the associated R package to this book, hence you have this dataset stored on your computer at `system.file(package = "ScPoEconometrics","datasets","example-data.csv")`. 
 
 ```{r}
 example_data_from_disk
@@ -683,7 +683,7 @@ In this dataset an observation is for a particular model of a car, and the varia
 
 To understand more about the data set, we use the `?` operator to pull up the documentation for the data.
 
-```{r, eval = FALSE}
+```r
 ?mtcars
 ```
 
@@ -719,7 +719,7 @@ mtcars[mtcars$mpg > 20, c("cyl", "disp", "wt")]
 
 An alternative would be to use the `subset()` function, which has a much more readable syntax.
 
-```{r, eval = FALSE}
+```r
 subset(mtcars, subset = mpg > 25, select = c("cyl", "disp", "wt"))
 ```
 
@@ -755,7 +755,7 @@ z(9)
 
 Control Flow relates to ways in which you can adapt your code to different circumstances. Based on a `condition` being `TRUE`, your program will do one thing, as opposed to another thing. This is most widely known as an `if/else` statement. In `R`, the if/else syntax is:
 
-```{r, eval = FALSE}
+```r
 if (condition = TRUE) {
   some R code
 } else {
@@ -786,7 +786,7 @@ z
 
 Loops are a very important programming construct. As the name suggests, in a *loop*, the programming *repeatedly* loops over a set of instructions, until some condition tells it to stop. A very powerful, yet simple, construction is that the program can *count how many steps* it has done already - which may be important to know for many algorithms. The syntax of a `for` loop (there are others), is
 
-```{r eval=FALSE}
+```r
 for (ix in 1:10){   # does not have to be 1:10!
   # loop body: gets executed each time
   # the value of ix changes with each iteration
@@ -827,7 +827,7 @@ The important thing to note here is that you can do calculations with the iterat
 
 So far we have been using functions, but haven't actually discussed some of their details. A function is a set of instructions that `R` executes for us, much like those collected in a script file. The good thing is that functions are much more flexible than scripts, since they can depend on *input arguments*, which change the way the function behaves. Here is how to define a function:
 
-```{r eval=FALSE}
+```r
 function_name <- function(arg1,arg2=default_value){
   # function body
   # you do stuff with arg1 and arg2

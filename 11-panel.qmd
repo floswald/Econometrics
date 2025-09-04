@@ -1,0 +1,2 @@
+# Panel Data Methods {#sec-panel}
+

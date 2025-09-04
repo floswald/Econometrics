@@ -5,19 +5,30 @@ book:
   title: "Econometrics"
   subtitle: "3rd Year Undergraduate, ESOMAS, Uni Turin"
   author: "Florian Oswald"
-  date: ""
+  date: "today"
   chapters:
     - index.qmd
     - intro.qmd
-    - summary.qmd
+    - 01-R.qmd
+    - 02-probability.qmd
+    - 03-statistics.qmd
+    - 04-experiments.qmd
+    - 05-linear-regression.qmd
+    - 06-hypothesis-tests.qmd
+    - 07-multiple-regression.qmd
+    - 08-nonlinear-regression.qmd
+    - 09-causality.qmd
+    - 10-IV.qmd
+    - 11-panel.qmd
+    - 12-discrete.qmd
     - references.qmd
 
 bibliography: references.bib
+html-math-method: katex
 
 format:
   html:
     theme:
-      - cosmo
       - mystyle.scss
   pdf:
     documentclass: scrreprt

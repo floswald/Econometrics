@@ -1,0 +1,4 @@
+# Review of Probability for Economists {#probability}
+
+
+flip a coin!

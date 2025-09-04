@@ -1,5 +1,25 @@
-# Preface {.unnumbered}
+# Syllabus {.unnumbered}
 
-This is a Quarto book.
+This is the course website/book for our econometrics course.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+## Weekly Schedule
+
+A typical week will look as follows:
+
+| | |  |
+|-----|:------|-----|
+| Tuesday | 14:00 - 15:30 |       |
+| Wednesday | 11:15-12:30 | Block 1 |
+|           | 12:45-13:45 | Block 2|
+| Friday    | 11:15-12:30 | Block 1 |
+|           | 12:45-13:45 | Block 2|
+
+
+## What to Bring
+
+1. Something to take notes.
+2. A laptop to follow live coding during classes. (optional)
+
+## Programme
+
+
