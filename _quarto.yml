@@ -12,15 +12,15 @@ book:
     - 01-R.qmd
     - 02-probability.qmd
     - 03-statistics.qmd
-    - 04-experiments.qmd
-    - 05-linear-regression.qmd
-    - 06-hypothesis-tests.qmd
-    - 07-multiple-regression.qmd
-    - 08-nonlinear-regression.qmd
-    - 09-causality.qmd
-    - 10-IV.qmd
-    - 11-panel.qmd
+    - 04-linear-regression.qmd
+    - 05-hypothesis-tests.qmd
+    - 06-multiple-regression.qmd
+    - 07-nonlinear-regression.qmd
+    - 09-potential-issues.qmd
+    - 10-panel.qmd
+    - 11-IV.qmd
     - 12-discrete.qmd
+    - cruscotto-opere-pubbliche/exercise.qmd
     - references.qmd
 
 bibliography: references.bib
