@@ -1,2 +1,7 @@
 # Review of Statistics {#sec-statistics}
 
+
+* Estimation of population mean
+* key concept 3.2
+* 3.3
+* what is a sampling distribution?? what is sampling?“ learned in previous chapter.

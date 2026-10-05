@@ -6,13 +6,15 @@ This is the course website/book for our econometrics course.
 
 A typical week will look as follows:
 
-| | |  |
+|Day  | Time  | Location |
 |-----|:------|-----|
-| Tuesday | 14:00 - 15:30 |       |
-| Wednesday | 11:15-12:30 | Block 1 |
-|           | 12:45-13:45 | Block 2|
-| Friday    | 11:15-12:30 | Block 1 |
-|           | 12:45-13:45 | Block 2|
+| Tuesday | 14:00 - 15:30 | Aula Magna SME|
+| Wednesday | 11:15-12:30 | Aula 3 SME |
+|           | 12:45-13:45 | Aula 3 SME |
+| Friday    | 11:15-12:30 | Aula Azzurra SME |
+|           | 12:45-13:45 | Aula Azzurra SME |
+
+SME: Scuola di Management e Economia, Corso Unione Sovietica 218 bis, Torino
 
 
 ## What to Bring

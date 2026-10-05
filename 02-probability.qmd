@@ -2,3 +2,17 @@
 
 
 flip a coin!
+
+
+1. Probabilities and RVs
+2. PDFs and CDFs of discrete
+3. PDFs and CDFs of cont
+4. E, Var
+5. funcs of RVs
+6. standardizing RVs
+7. joint and marginal dists
+8. conditional dists, independence, covariance, corr
+9. LIE
+10. correlation and conditional mean
+11. KC 2.3
+12. random sampling and distributions of resulting statistics
