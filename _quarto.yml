@@ -20,6 +20,7 @@ book:
     - 13-star.qmd
     - 10-panel.qmd
     - 11-IV.qmd
+    - 14-rdd.qmd
     - 12-discrete.qmd
     - part: "Exercises"
       chapters:
