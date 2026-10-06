@@ -20,7 +20,9 @@ book:
     - 10-panel.qmd
     - 11-IV.qmd
     - 12-discrete.qmd
-    - cruscotto-opere-pubbliche/exercise.qmd
+    - part: "Exercises"
+      chapters:
+        - cruscotto-opere-pubbliche/exercise.qmd
     - references.qmd
 
 bibliography: references.bib
@@ -32,6 +34,3 @@ format:
       - mystyle.scss
   pdf:
     documentclass: scrreprt
-
-
-
