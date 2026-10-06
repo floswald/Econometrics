@@ -1,2 +1,335 @@
-# Nonlinear Regression {#sec-nonlinreg}
+---
+execute:
+  warning: false
+  message: false
+---
+# Categorical Variables and Interactions {#sec-nonlinreg}
 
+Up until now, we have encountered only examples with *continuous* variables $x$ and $y$, that is, $x,y \in \mathbb{R}$, so that a typical observation could have been $(y_i,x_i) = (1.5,5.62)$. There are many situations where it makes sense to think about the data in terms of *categories*, rather than continuous numbers. For example, whether an observation $i$ is *male* or *female*, whether a pixel on a screen is *black* or *white*, and whether a good was produced in *France*, *Germany*, *Italy*, *China* or *Spain* are all categorical classifications of data.
+
+Probably the simplest type of categorical variable is the *binary*, *boolean*, or just *dummy* variable. As the name suggests, it can take on only two values, `0` and `1`, or `TRUE` and `FALSE`. Even though dummy variables only take two values, including them (possibly interacted with other regressors) is a simple and powerful way of letting the regression function take a more *flexible*, nonlinear shape across different subgroups of the data -- which is exactly the topic of this chapter.
+
+## The Binary Regressor Case
+
+Even though this is an extremely parsimonious way of encoding information, it is a very powerful tool that allows us to represent that a certain observation $i$ **is a member** of a certain category $j$. For example, let's imagine we have income data on males and females, and we would create a variable called `is.male` that is `TRUE` whenever $i$ is male, `FALSE` otherwise, and similarly for women. For example, to encode whether subject $i$ is male, one could do this:
+
+$$
+\text{is.male}_i =  \begin{cases}
+                    1 & \text{if }i\text{ is male} \\
+                    0 & \text{if }i\text{ is not male}. \\
+                 \end{cases}
+$$
+
+and similarly for females, we'd have
+
+$$
+\text{is.female}_i =  \begin{cases}
+                    1 & \text{if }i\text{ is female} \\
+                    0 & \text{if }i\text{ is not female}. \\
+                 \end{cases}
+$$
+
+By definition, we have just introduced a linear dependence into our dataset. It will always be true that $\text{is.male}_i + \text{is.female}_i = 1$. This is because dummy variables are based on data being mutually exclusively categorized -- here, you are either male or female.^[There are [transgender](https://en.wikipedia.org/wiki/Transgender) individuals where this example will not apply.] This should immediately remind you of the discussion of *multicollinearity* in the chapter on multiple regression. A regression of income on both of our variables like this
+
+$$
+y_i = b_0 + b_1 \text{is.female}_i + b_2 \text{is.male}_i + e_i
+$$
+
+would be invalid because of perfect collinearity between $\text{is.female}_i$ and $\text{is.male}_i$. The solution to this is pragmatic and simple:
+
+::: {.callout-tip}
+In dummy variable regressions, we remove one category from the regression (for example here: `is.male`) and call it the *reference category*. The effect of being *male* is absorbed in the intercept. The coefficient on the remaining categories measures the *difference* in mean outcome with respect to the reference category.
+:::
+
+Now let's try this out. We start by creating the female indicator as above,
+
+$$
+\text{is.female}_i = \begin{cases}
+          1 & \text{if }i\text{ is female} \\
+            0 & \text{if }i\text{ is not female}. \\
+   \end{cases}
+$$
+
+and let's suppose that $y_i$ is a measure of $i$'s annual labor income. Our model is
+
+$$
+y_i = b_0 + b_1 \text{is.female}_i + e_i
+$$ {#eq-dummy-reg}
+
+and here is how we estimate this in `R`:
+
+```{r}
+#| echo: false
+set.seed(19)
+n = 50
+b0 = 2
+b1 = -3
+x = sample(x = c(0, 1), size = n, replace = TRUE)
+y = b0 + b1 * x + rnorm(n)
+dta = data.frame(x,y)
+zero_one = lm(y~x,dta)
+```
+
+```{r}
+dta$is.female = factor(x)  # convert x to factor
+dummy_reg = lm(y~is.female,dta)
+summary(dummy_reg)
+```
+
+Notice that `R` displays the *level* of the factor to which coefficient $b_1$ belongs here, i.e. `is.female1` means this coefficient is on level `is.female = 1` -- the reference level is `is.female = 0`, and it has no separate coefficient. Also interesting is that $b_1$ is equal to the difference in conditional means between male and female
+
+$$b_1 = E[y|\text{is.female}=1] - E[y|\text{is.female}=0]=`r round(mean(dta[dta$x == 1, "y"]) - mean(dta[dta$x == 0, "y"]),4)`.$$
+
+::: {.callout-note}
+A dummy variable measures the difference or the *offset* in the mean of the response variable, $E[y]$, **conditional** on $x$ belonging to some category -- relative to a baseline category. In our artificial example, the coefficient $b_1$ informs us that women earn on average `r abs(round(coef(dummy_reg)[2],3))` units less than men.
+:::
+
+It is instructive to reconsider this example graphically:
+
+```{r}
+#| label: fig-dummy-scatter
+#| fig-cap: "Regressing $y \\in \\mathbb{R}$ on $\\text{is.female}_i \\in \\{0,1\\}$. The blue line is $E[y]$, the red arrow is the size of $b_1$. Which is the same as the slope of the regression line in this case and the difference in conditional means!"
+#| echo: false
+a <- coef(zero_one)[1]
+b <- coef(zero_one)[2]
+
+expr <- function(x) a + b*x
+errors <- (a + b*x) - y
+
+plot(x, y, type = "p", pch = 21, col = "blue", bg = "royalblue", asp=.25,
+   xlim = c(-.1, 1.1),
+   ylim = c(min(y)-.1, max(y)+.1),
+   frame.plot = TRUE,
+   cex = 1.2)
+
+points(0, mean(dta[dta$x == 0, "y"]), col = 'orange',
+       cex = 3, pch = 15)
+text(0.05, mean(dta[dta$x == 0, "y"]), "E[Y | is.female = 0]", pos = 4)
+
+points(1, mean(dta[dta$x == 1, "y"]), col = 'orange',
+       cex = 3, pch = 15)
+text(1.05, mean(dta[dta$x == 1, "y"]), "E[Y | is.female = 1]", pos = 4)
+curve(expr = expr, from = min(x)-10, to = max(x)+10, add = TRUE, col = "black")
+segments(x0 = x, y0 = y, x1 = x, y1 = (y + errors), col = "green")
+arrows(x0 =-1, y0 = mean(dta[dta$x == 0, "y"]), x1 = -1, y1 = mean(dta[dta$x == 1, "y"]),col="red",lw=3,code=3,length=0.1)
+segments(x0=-1,y0 = mean(dta[dta$x == 0, "y"]),x1=0,y1 = mean(dta[dta$x == 0, "y"]),col="red",lty="dashed")
+segments(x0=-1,y0 = mean(dta[dta$x == 1, "y"]),x1=1,y1 = mean(dta[dta$x == 1, "y"]),col="red",lty="dashed")
+
+text(-1, mean(y)+1, paste("b1=",round(b,2)), pos = 4,col="red")
+abline(a=mean(dta$y),b=0,col="blue",lw=2)
+```
+
+In @fig-dummy-scatter we see that this regression simplifies to the straight line connecting the mean, or the *expected value* of $y$ when $\text{is.female}_i = 0$, i.e. $E[y|\text{is.female}_i=0]$, to the mean when $\text{is.female}_i=1$, i.e.  $E[y|\text{is.female}_i=1]$. It is useful to remember that the *unconditional mean* of $y$, i.e. $E[y]$, is going to be the result of regressing $y$ only on an intercept, illustrated by the blue line. This line will always lie in between both conditional means. As indicated by the red arrow, the estimate of the coefficient on the dummy, $b_1$, is equal to the difference in conditional means for both groups.
+
+::: {.callout-note}
+If you have access to the `ScPoApps` package, the interactive app `launchApp("reg_dummy")` lets you explore this relationship by dragging data points and watching the dummy coefficient update live.
+:::
+
+## Dummy and Continuous Variables
+
+What happens if there are more predictors than just the dummy variable in a regression? For example, what if instead we had
+
+$$
+y_i = b_0 + b_1 \text{is.female}_i + b_2 \text{exper}_i + e_i
+$$ {#eq-dummy-reg2}
+
+where $\text{exper}_i$ would measure years of experience in the labor market? As above, the dummy variable acts as an intercept shifter. We have
+
+$$
+y_i =  \begin{cases}
+b_0 + b_1 + b_2 \times \text{exper}_i + e_i & \text{if is.female=1} \\
+b_0  + \hphantom{b_1} +b_2 \times \text{exper}_i + e_i & \text{if is.female=0}
+\end{cases}
+$$
+
+so that the intercept is $b_0 + b_1$ for women but $b_0$ for men. We will see this in the real-world example below.
+
+::: {.callout-note}
+The `ScPoApps` app `launchApp("reg_dummy_example")` lets you switch the dummy *on* and *off* interactively and observe how the fitted line jumps between the two parallel intercepts.
+:::
+
+## Categorical Variables in `R`: `factor`
+
+`R` has extensive support for categorical variables built-in. The relevant data type representing a categorical variable is called `factor`. We encountered factors as a basic data type in the chapter on `R` basics already, but it is worth repeating this here. A factor *categorizes* a usually small number of numeric values by *labels*, as in this example which is similar to what we used to create regressor `is.female` for the above regression:
+
+```{r}
+is.female = factor(x = c(0,1,1,0), labels = c(FALSE,TRUE))
+is.female
+```
+
+You can see the result is a vector object of type `factor` with 4 entries, whereby `0` is represented as `FALSE` and `1` as `TRUE`. Another example could be if we wanted to record a variable *sex* instead, and we could do
+
+```{r}
+sex = factor(x = c(0,1,1,0), labels = c("male","female"))
+sex
+```
+
+You can see that this is almost identical, just the *labels* are different.
+
+### More Levels
+
+We can go beyond *binary* categorical variables such as `TRUE` vs `FALSE`. For example, suppose that $x$ measures educational attainment, i.e. it is now something like $x_i \in \{\text{high school,some college,BA,MSc}\}$. In `R` parlance, *high school, some college, BA, MSc* are the **levels of factor $x$**. A straightforward extension of the above would dictate to create one dummy variable for each category (or level), like
+
+$$
+\begin{align*}
+\text{has.HS}_i &= \mathbf{1}[x_i==\text{high school}] \\
+\text{has.someCol}_i &= \mathbf{1}[x_i==\text{some college}] \\
+\text{has.BA}_i &= \mathbf{1}[x_i==\text{BA}] \\
+\text{has.MSc}_i &= \mathbf{1}[x_i==\text{MSc}]
+\end{align*}
+$$
+
+but you can see that this is cumbersome. There is a better solution for us available:
+
+```{r}
+factor(x = c(1,1,2,4,3,4),labels = c("HS","someCol","BA","MSc"))
+```
+
+Notice here that `R` will apply the labels in increasing order the way you supplied it (i.e. a numerical value `4` will correspond to "MSc", no matter the ordering in `x`.)
+
+### Log Wages and Dummies {#sec-factors}
+
+The above developed `factor` terminology fits neatly into `R`'s linear model fitting framework. Let us illustrate the simplest use by way of example.
+
+Going back to our wage example, let's say that a worker's wage depends on their education as well as their sex:
+
+$$
+\ln w_i = b_0 + b_1 educ_i + b_2 female_i + e_i
+$$ {#eq-wage-sex}
+
+```{r}
+#| results: asis
+data("wage1", package = "wooldridge")
+wage1$female = as.factor(wage1$female)  # convert 0-1 to factor
+lm_w = lm(lwage ~ educ, data = wage1)
+lm_w_sex = lm(lwage ~ educ + female, data = wage1)
+stargazer::stargazer(lm_w,lm_w_sex,type = if (knitr:::is_latex_output()) "latex" else "html")
+```
+
+We know the results from column (1) very well by now. How does the relationship change if we include the `female` indicator? Remember from above that `female` is a `factor` with two levels, *0* and *1*, where *1* means *that's a female*. We see in the above output that `R` included a regressor called `female1`. This is a combination of the variable name `female` and the level which was included in the regression. In other words, `R` chooses a *reference category* (by default the first of all levels by order of appearance), which is excluded -- here this is `female==0`. The interpretation is that $b_2$ measures the effect of being female *relative* to being male. `R` automatically creates a dummy variable for each potential level, excluding the first category.
+
+```{r}
+#| label: fig-wage-plot
+#| fig-cap: "Log wage vs educ. Right panel with female dummy."
+#| echo: false
+#| fig-height: 3
+library(ggplot2)
+p1 = ggplot(mapping = aes(y=lwage,x=educ), data=wage1) + geom_point(shape=1,alpha=0.6) + geom_smooth(method="lm",col="blue",se=FALSE) + theme_bw()
+
+p_sex = cbind(wage1,pred=predict(lm_w_sex))
+p2 <- ggplot(data=p_sex,mapping=aes(x=educ,y=lwage,color=female))
+p2 <- p2 + geom_jitter(shape=1,alpha=0.6,width=0.1) + geom_line(mapping = aes(y=pred), linewidth=1) + theme_bw() + scale_y_continuous(name = NULL)
+cowplot::plot_grid(p1,p2, rel_widths = c(1,1.2))
+```
+
+@fig-wage-plot illustrates this. The left panel is our previous model. The right panel adds the `female` dummy. You can see that both male and female have the same upward sloping regression line. But you can also see that there is a parallel downward shift from male to female line. The estimate of $b_2 = `r round(coef(lm_w_sex)[3],2)`$ is the size of the downward shift.
+
+## Interactions
+
+Sometimes it is useful to let the slope of a certain variable be dependent on the value of *another* regressor. For example consider a model for the sales prices of houses, where `area` is the livable surface of the property, and `age` is its age:
+
+$$
+\log(price) = b_0 + b_1 \text{area} + b_2 \text{age} + b_3 (\text{area} \times \text{age}) + e
+$$ {#eq-price-interact}
+
+In that model, the partial effect of `area` on `log(price)`, keeping all other variables fixed, is
+
+$$
+\frac{\partial \log(price)}{\partial \text{area}} = b_1 + b_3 (\text{age})
+$$
+
+If we find that $b_3 > 0$ in a regression, we conclude that the size of a house is valued more in older houses. We call $b_3$ the **interaction effect** between area and age. Let's look at that regression model now.
+
+```{r}
+data(hprice3, package = "wooldridge")
+summary(lm(lprice ~ area*age, data = hprice3))
+```
+
+In this instance, we see that indeed there is a small positive interaction between `area` and `age` on the sales price: even though `age` in isolation decreases the sales value, bigger houses command a small premium if they are older.
+
+### Interactions with Dummies: Differential Slopes
+
+It is straightforward to extend the interactions logic to allow not only for different *intercepts*, but also different *slopes* for each subgroup in a dataset. Let's go back to our dataset of wages from @sec-factors above. Now that we know how to create an interaction between two variables, we can easily modify @eq-wage-sex like this:
+
+$$
+\ln w = b_0 + b_1 \text{female} + b_2 \text{educ} + b_3 (\text{female} \times \text{educ}) + e
+$$ {#eq-wage-sex2}
+
+The only peculiarity here is that `female` is a factor with levels `0` and `1`: i.e. the interaction term $b_3$ will be zero for all men. Similarly to above, we can test whether there are indeed different returns to education for men and women by looking at the estimated value $b_3$:
+
+```{r}
+lm_w_interact <- lm(lwage ~ educ * female , data = wage1)  # R expands to full interactions model
+summary(lm_w_interact)
+```
+
+We will in a later chapter learn how to formally test whether an estimate is different from zero in a statistical sense. For now, the estimate for $b_3$ on the interaction `educ:female1` is difficult for us to distinguish from zero; hence we conclude that there are *no* significantly different returns to education for men and women in this data. This is easy to verify visually in the following plot, where we are unable to detect a difference in slopes in the right panel.
+
+```{r}
+#| label: fig-wage-plot2
+#| fig-cap: "Log wage vs educ. Right panel allows slopes to be different -- turns out they are not!"
+#| echo: false
+#| fig-height: 3
+p_sex = cbind(wage1,pred=predict(lm_w_sex))
+p_sex = cbind(p_sex,pred_inter=predict(lm_w_interact))
+p2 <- ggplot(data=p_sex,mapping=aes(x=educ,y=lwage,color=female))
+p2 <- p2 + geom_jitter(shape=1,alpha=0.6,width=0.1) + geom_line(mapping = aes(y=pred), linewidth=1) + theme_bw() + scale_y_continuous(name = "log wage") + ggtitle("Impose Parallel Slopes") + theme(legend.position = "none")
+
+p3 <- ggplot(data=p_sex,mapping=aes(x=educ,y=lwage,color=female))
+p3 <- p3 + geom_jitter(shape=1,alpha=0.6,width=0.1) + geom_line(mapping = aes(y=pred_inter), linewidth=1) + theme_bw() + scale_y_continuous(name = NULL)  + ggtitle("Allow Different Slopes") + theme(legend.position = "none")
+
+cowplot::plot_grid(p2,p3)
+```
+
+@fig-wage-plot2 confirms the regression output: the two panels -- one imposing parallel slopes, the other allowing them to differ -- look virtually identical.
+
+## (Unobserved) Individual Heterogeneity
+
+Finally, dummy variables are sometimes very important to account for spurious relationships in the data. Consider the following (artificial example):
+
+1. Suppose we collected data on hourly wages together with the number of hours worked for a set of individuals.
+2. We want to investigate the labour supply behaviour of those individuals, hence we run the regression `hours_worked ~ wage`.
+3. We expect to get a positive coefficient on `wage`: the higher the wage, the more hours worked.
+4. We know that individuals are members of either group `g=0` or `g=1`.
+
+```{r}
+#| echo: false
+two_clouds <- function(a1 = 5, a2 = -2, b1 = 2.5, b2 = 1.5, n1 = 50, n2 = 50){
+  set.seed(12)
+  x1 = rnorm(n1,mean = 1,sd = 0.5)
+  x2 = rnorm(n2,mean = 1.3,sd = 0.5)
+  y1 = a1 + b1 * x1 + rnorm(n1,sd = 2)
+  y2 = a2 + b2 * x2 + rnorm(n2,sd = 2)
+  x = c(x1,x2)
+  y = c(y1,y2)
+  g = factor(c(rep(1,n1),rep(2,n1)))
+  z = data.frame(x,y,g)
+  m1 = lm(y~x,data = z)
+  m2 = update(m1, . ~ . + g)
+  p1 = ggplot(z, aes(x,y)) + geom_point() + geom_smooth(method = "lm",se =FALSE) + scale_x_continuous(name = "wage")  + scale_y_continuous(name = "hours") + theme_bw()
+  p2 = ggplot(z, aes(x,y,color = g)) + geom_point() + geom_smooth(method = "lm",se = FALSE) + scale_x_continuous(name = "wage")  + scale_y_continuous(name = "hours") + theme_bw()  + ggtitle("Controlling for Group")
+  list(m1=m1,m2=m2,p1 = p1, p = cowplot::plot_grid(p1,p2,rel_widths = c(1,1.2)))
+}
+tc = two_clouds()
+```
+
+```{r}
+#| label: fig-two-clouds-plain
+#| fig-cap: "Hours worked vs wage, ignoring group membership."
+#| echo: false
+tc$p1
+```
+
+@fig-two-clouds-plain shows a slightly negative relationship: higher wages are associated with fewer hours worked? Maybe. But wait, there is a group identifier in this data! Let's use this and include `g` as a dummy in the regression -- suppose `g` encodes male and female.
+
+```{r}
+#| label: fig-two-clouds-group
+#| fig-cap: "Left and right panel exhibit the same data. The right panel controls for group composition."
+#| echo: false
+tc$p
+```
+
+@fig-two-clouds-group shows that, after conditioning on group membership `g`, the within-group relationship between wage and hours worked is actually *positive* for both groups -- the overall negative slope we saw before was entirely driven by the fact that one group earns systematically higher wages *and* works systematically fewer hours, not by any genuine labour-supply response.
+
+::: {.callout-warning}
+This is an artificial example, yet it shows that you can be severely misled if you don't account for group-specific effects in your data. The problem is particularly acute if we *don't know* group membership -- we can then resort to advanced methods, beyond the scope of this course, to *estimate* which group each individual belongs to. If we *do know* group membership, however, it is good practice to include a group dummy so as to control for group effects.
+:::
