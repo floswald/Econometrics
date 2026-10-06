@@ -201,13 +201,8 @@ Thankfully there are packages available that help us to compute those marginal e
 #| tbl-cap: "Logit and Probit estimates and marginal effects evaluated at mean of x or as sample average of effects"
 f <- "inlf ~ age + kidslt6 + nwifeinc" # setup a formula
 glms <- list()
-glms$probit <- glm(formula = f,
-                    data = mroz,
-                    family = binomial(link = "probit"))
-glms$logit <- glm(formula = f,
-                    data = mroz,
-                    family = binomial(link = "logit"))
-# now the marginal effects versions
+# the marginal effects versions (their `conditional` rows below reproduce
+# the raw probit/logit coefficients from the table above exactly)
 glms$probitMean <- mfx::probitmfx(formula = f,
                     data = mroz, atmean = TRUE)
 glms$probitAvg <- mfx::probitmfx(formula = f,
@@ -219,7 +214,8 @@ glms$logitAvg <- mfx::logitmfx(formula = f,
 
 modelsummary::modelsummary(glms,
                            stars = TRUE,
-                           gof_omit = "AIC|BIC")
+                           gof_omit = "AIC|BIC",
+                           shape = term + component ~ model)
 ```
 
-In table @tbl-glms you should first note that the estimates of the first two columns (probit or logit) don't correspond to the remaining columns. That's because they only give you the $\beta$'s. As we have learned above, that in itself is not informative, as it depends *where* one computes the marginal effects. Hence the remaining columns compute the marginal effects either at the mean of all regressors (`probitMean`) or as the sample average over all effects in the data (`probitAvg`). You can notice some differences here, for example we find at the average regressor, an additional child below age of 6 reduces the probability of work by 0.314, whereas as an averag over all sample effects it reduces it by 0.29. Furthermore, you see that the marginal effect estimates between probit and logit don't correspond exactly, which is a consequence of the different shapes of the curves in figure @fig-cdfs. No one approach is correct here and depends on how your data is distributed (e.g. is the mean a good summary of the data here?). What is clear, though, is that in most cases reporting coefficient estimates only is not very informative (it only tells you the direction of any effect).
+In table @tbl-glms you should first note that the `conditional` rows (the raw $\beta$'s — identical to the probit/logit coefficients in the table above) don't correspond to the `marginal` rows. As we have learned above, the raw coefficients alone are not informative, as the implied marginal effect depends on *where* one computes it. Hence the `marginal` rows compute the marginal effects either at the mean of all regressors (`probitMean`) or as the sample average over all effects in the data (`probitAvg`). You can notice some differences here, for example we find at the average regressor, an additional child below age of 6 reduces the probability of work by 0.314, whereas as an averag over all sample effects it reduces it by 0.29. Furthermore, you see that the marginal effect estimates between probit and logit don't correspond exactly, which is a consequence of the different shapes of the curves in figure @fig-cdfs. No one approach is correct here and depends on how your data is distributed (e.g. is the mean a good summary of the data here?). What is clear, though, is that in most cases reporting coefficient estimates only is not very informative (it only tells you the direction of any effect).
