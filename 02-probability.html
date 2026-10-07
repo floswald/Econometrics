@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -71,6 +106,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -159,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-nonlinear-regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Nonlinear Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Variables and Interactions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -170,20 +248,32 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./13-star.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">STAR Experiment</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./10-panel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Panel Data Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Panel Data Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11-IV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Instrumental Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Instrumental Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-rdd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Regression Discontinuity Design</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12-discrete.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Discrete Choice Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Discrete Choice Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -198,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cruscotto-opere-pubbliche/exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></span></a>
   </div>
 </li>
       </ul>
@@ -214,15 +304,32 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#random-variables" id="toc-random-variables" class="nav-link active" data-scroll-target="#random-variables"><span class="header-section-number">3.1</span> Random Variables</a></li>
+  <li><a href="#describing-a-random-variable" id="toc-describing-a-random-variable" class="nav-link" data-scroll-target="#describing-a-random-variable"><span class="header-section-number">3.2</span> Describing a Random Variable</a>
+  <ul class="collapse">
+  <li><a href="#discrete-case-the-pmf" id="toc-discrete-case-the-pmf" class="nav-link" data-scroll-target="#discrete-case-the-pmf"><span class="header-section-number">3.2.1</span> Discrete Case: the PMF</a></li>
+  <li><a href="#continuous-case-the-pdf-and-cdf" id="toc-continuous-case-the-pdf-and-cdf" class="nav-link" data-scroll-target="#continuous-case-the-pdf-and-cdf"><span class="header-section-number">3.2.2</span> Continuous Case: the PDF and CDF</a></li>
+  </ul></li>
+  <li><a href="#the-normal-distribution" id="toc-the-normal-distribution" class="nav-link" data-scroll-target="#the-normal-distribution"><span class="header-section-number">3.3</span> The Normal Distribution</a></li>
+  <li><a href="#expectation" id="toc-expectation" class="nav-link" data-scroll-target="#expectation"><span class="header-section-number">3.4</span> Expectation</a></li>
+  <li><a href="#variance" id="toc-variance" class="nav-link" data-scroll-target="#variance"><span class="header-section-number">3.5</span> Variance</a></li>
+  <li><a href="#covariance-and-correlation" id="toc-covariance-and-correlation" class="nav-link" data-scroll-target="#covariance-and-correlation"><span class="header-section-number">3.6</span> Covariance and Correlation</a></li>
+  <li><a href="#conditional-probability-and-independence" id="toc-conditional-probability-and-independence" class="nav-link" data-scroll-target="#conditional-probability-and-independence"><span class="header-section-number">3.7</span> Conditional Probability and Independence</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">3.8</span> Summary</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="probability" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Review of Probability for Economists</span></span></h1>
+<h1 class="title"><span id="sec-probability" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Review of Probability for Economists</span></span></h1>
 </div>
 
 
@@ -239,23 +346,297 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>flip a coin!</p>
-<ol type="1">
-<li>Probabilities and RVs</li>
-<li>PDFs and CDFs of discrete</li>
-<li>PDFs and CDFs of cont</li>
-<li>E, Var</li>
-<li>funcs of RVs</li>
-<li>standardizing RVs</li>
-<li>joint and marginal dists</li>
-<li>conditional dists, independence, covariance, corr</li>
-<li>LIE</li>
-<li>correlation and conditional mean</li>
-<li>KC 2.3</li>
-<li>random sampling and distributions of resulting statistics</li>
-</ol>
+<p>This chapter is a <em>review</em>. You will have seen most of these concepts before in a basic probability or statistics course. Our goal here is not to re-derive everything from first principles, but to refresh the concepts and notation that we will rely on heavily once we start doing <em>statistics</em> (<a href="03-statistics.html" class="quarto-xref"><span>Chapter 4</span></a>) and <em>regression</em> (coming up soon). Along the way we will use <code>R</code> to simulate random variables, which is often the most intuitive way to build (or rebuild) intuition about probability.</p>
+<section id="random-variables" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">3.1</span> Random Variables</h2>
+<p>A <strong>random variable</strong> is a variable whose value is the outcome of a random phenomenon. We usually denote random variables with capital letters, e.g.&nbsp;<span class="math inline">X</span>, <span class="math inline">Y</span>, and particular realizations (i.e.&nbsp;the value that a random variable actually takes once we observe it) with lower case letters, e.g.&nbsp;<span class="math inline">x</span>, <span class="math inline">y</span>.</p>
+<p>There are two basic flavors of random variables that matter to us:</p>
+<ul>
+<li><strong>Discrete</strong> random variables take on a <em>countable</em> number of values. Examples: the number of heads in 10 coin flips, the number of children in a household, whether a firm exports or not (<span class="math inline">X \in \{0,1\}</span>).</li>
+<li><strong>Continuous</strong> random variables take on <em>any</em> value in an interval (or union of intervals). Examples: wages, GDP growth, the error term in a regression.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this course we will almost always use <em>continuous</em> random variables to model economic quantities (income, prices, test scores, …), even though in practice data are often rounded or measured in discrete units (cents, dollars). The continuous approximation is usually good enough, and much easier to work with mathematically.</p>
+</div>
+</div>
+</section>
+<section id="describing-a-random-variable" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="describing-a-random-variable"><span class="header-section-number">3.2</span> Describing a Random Variable</h2>
+<section id="discrete-case-the-pmf" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="discrete-case-the-pmf"><span class="header-section-number">3.2.1</span> Discrete Case: the PMF</h3>
+<p>For a discrete random variable <span class="math inline">X</span>, we describe its behavior with a <strong>probability mass function (PMF)</strong>, <span class="math display">
+p(x) = P(X = x),
+</span> which has to satisfy <span class="math inline">p(x) \geq 0</span> for all <span class="math inline">x</span>, and <span class="math inline">\sum_x p(x) = 1</span>.</p>
+<p>A simple example is a fair coin flip, encoded as <span class="math inline">X \in \{0, 1\}</span> with <span class="math inline">P(X=1) = P(X=0) = 0.5</span>. We can simulate many such coin flips in <code>R</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>flips <span class="ot">=</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">size =</span> <span class="dv">10000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(flips) <span class="sc">/</span> <span class="fu">length</span>(flips)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>flips
+    0     1 
+0.501 0.499 </code></pre>
+</div>
+</div>
+<p>Notice that the <em>simulated</em> proportions are close to, but not exactly, <span class="math inline">0.5</span>. This is a preview of why we need statistics: we rarely know probabilities exactly, we only have finite samples from which we try to learn about them.</p>
+</section>
+<section id="continuous-case-the-pdf-and-cdf" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="continuous-case-the-pdf-and-cdf"><span class="header-section-number">3.2.2</span> Continuous Case: the PDF and CDF</h3>
+<p>For a continuous random variable <span class="math inline">X</span>, there is no meaningful “probability of a single point” (it is exactly zero!). Instead we describe <span class="math inline">X</span> with a <strong>probability density function (PDF)</strong> <span class="math inline">f(x)</span>, such that for any interval <span class="math inline">[a,b]</span>, <span class="math display">
+P(a \leq X \leq b) = \int_a^b f(x)\, dx.
+</span></p>
+<p>The PDF must satisfy <span class="math inline">f(x) \geq 0</span> and <span class="math inline">\int_{-\infty}^{\infty} f(x)\, dx = 1</span>.</p>
+<p>Closely related is the <strong>cumulative distribution function (CDF)</strong>, <span class="math display">
+F(x) = P(X \leq x) = \int_{-\infty}^{x} f(t)\, dt,
+</span> which gives the probability that <span class="math inline">X</span> is <em>less than or equal to</em> some value <span class="math inline">x</span>. The CDF is always non-decreasing, and satisfies <span class="math inline">F(-\infty) = 0</span> and <span class="math inline">F(\infty) = 1</span>.</p>
+</section>
+</section>
+<section id="the-normal-distribution" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="the-normal-distribution"><span class="header-section-number">3.3</span> The Normal Distribution</h2>
+<p>By far the most important continuous distribution for us is the <strong>Normal</strong> (or <strong>Gaussian</strong>) distribution, written <span class="math inline">X \sim N(\mu, \sigma^2)</span>, with PDF <span class="math display">
+f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(x-\mu)^2}{2\sigma^2} \right).
+</span></p>
+<p>The parameter <span class="math inline">\mu</span> is the <em>mean</em> (center of the distribution) and <span class="math inline">\sigma^2</span> is the <em>variance</em> (spread of the distribution). The special case <span class="math inline">\mu = 0, \sigma^2 = 1</span> is called the <strong>standard normal distribution</strong>.</p>
+<p><code>R</code> has built-in functions for the normal (and most other common distributions), following a consistent naming convention:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 58%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Prefix</th>
+<th style="text-align: left;">Meaning</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>d</code></td>
+<td style="text-align: left;">density, i.e.&nbsp;<span class="math inline">f(x)</span></td>
+<td style="text-align: left;"><code>dnorm(x)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>p</code></td>
+<td style="text-align: left;">CDF, i.e.&nbsp;<span class="math inline">F(x) = P(X \leq x)</span></td>
+<td style="text-align: left;"><code>pnorm(x)</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>q</code></td>
+<td style="text-align: left;">quantile function, inverse of the CDF</td>
+<td style="text-align: left;"><code>qnorm(p)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>r</code></td>
+<td style="text-align: left;">random draws from the distribution</td>
+<td style="text-align: left;"><code>rnorm(n)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Let’s plot the density of a standard normal:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="fu">dnorm</span>(x), <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"dodgerblue"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Standard Normal Density"</span>, <span class="at">ylab =</span> <span class="st">"f(x)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02-probability_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And let’s draw a large sample and compare its histogram to the theoretical density:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(z, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"grey85"</span>, <span class="at">border =</span> <span class="st">"white"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Simulated N(0,1) draws vs. true density"</span>, <span class="at">xlab =</span> <span class="st">"z"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, <span class="fu">dnorm</span>(x), <span class="at">col =</span> <span class="st">"dodgerblue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02-probability_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can also use <code>pnorm()</code> to answer questions like “what is the probability that a standard normal random variable is less than <span class="math inline">1.96</span>?”:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">1.96</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9750021</code></pre>
+</div>
+</div>
+<p>or use <code>qnorm()</code> to find the value below which, say, 97.5% of the mass lies (this number, <span class="math inline">1.96</span>, will reappear very often once we do hypothesis testing!):</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.975</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.959964</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Your turn</strong>: using <code>pnorm()</code>, compute <span class="math inline">P(-1.96 \leq Z \leq 1.96)</span> for a standard normal <span class="math inline">Z</span>. Then verify your answer by simulation: draw a large vector <code>z = rnorm(1e6)</code> and compute the fraction of draws that fall in <span class="math inline">[-1.96, 1.96]</span> using logical subsetting (as in <span class="citation" data-cites="R-intro">(<a href="references.html#ref-R-intro" role="doc-biblioref"><strong>R-intro?</strong></a>)</span>). The two answers should be very close.</p>
+</div>
+</div>
+</section>
+<section id="expectation" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="expectation"><span class="header-section-number">3.4</span> Expectation</h2>
+<p>The <strong>expectation</strong> (or <strong>expected value</strong>, or <strong>mean</strong>) of a random variable is a weighted average of its possible values, weighted by their probability. For a discrete random variable, <span class="math display">
+E[X] = \sum_x x \, p(x),
+</span> and for a continuous random variable, <span class="math display">
+E[X] = \int_{-\infty}^{\infty} x \, f(x)\, dx.
+</span></p>
+<p>Expectation is a <em>linear</em> operator: for constants <span class="math inline">a, b</span> and random variables <span class="math inline">X, Y</span>, <span class="math display">
+E[aX + b] = a E[X] + b, \qquad E[X + Y] = E[X] + E[Y].
+</span></p>
+<p>We can illustrate the <em>Law of Large Numbers</em> – the fact that sample averages converge to the true expectation as the sample size grows – by simulation. Take <span class="math inline">X \sim N(5, 4)</span>, so <span class="math inline">E[X] = 5</span>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ns <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sample_means <span class="ot">=</span> <span class="fu">sapply</span>(ns, <span class="cf">function</span>(n) <span class="fu">mean</span>(<span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">2</span>)))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">n =</span> ns, <span class="at">sample_mean =</span> sample_means)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      n sample_mean
+1 1e+01    6.094594
+2 1e+02    5.001420
+3 1e+03    4.911027
+4 1e+04    4.984448
+5 1e+05    4.994039</code></pre>
+</div>
+</div>
+<p>As <code>n</code> grows, the sample mean gets closer and closer to the true mean, <span class="math inline">5</span>.</p>
+</section>
+<section id="variance" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="variance"><span class="header-section-number">3.5</span> Variance</h2>
+<p>The <strong>variance</strong> measures how spread out a random variable is around its mean: <span class="math display">
+\text{Var}(X) = E\left[(X - E[X])^2\right] = E[X^2] - (E[X])^2.
+</span></p>
+<p>The square root of the variance, <span class="math inline">\sigma = \sqrt{\text{Var}(X)}</span>, is the <strong>standard deviation</strong>, which has the convenient property of being measured in the <em>same units</em> as <span class="math inline">X</span> itself (variance is in squared units).</p>
+<p>Useful rules for variance: for constants <span class="math inline">a, b</span>, <span class="math display">
+\text{Var}(aX + b) = a^2 \text{Var}(X),
+</span> and if <span class="math inline">X</span> and <span class="math inline">Y</span> are <em>independent</em>, <span class="math display">
+\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y).
+</span></p>
+<p>In <code>R</code>, we estimate the variance and standard deviation of a sample with <code>var()</code> and <code>sd()</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">5</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x)   <span class="co"># should be close to 2^2 = 4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.784915</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)    <span class="co"># should be close to 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.945486</code></pre>
+</div>
+</div>
+</section>
+<section id="covariance-and-correlation" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="covariance-and-correlation"><span class="header-section-number">3.6</span> Covariance and Correlation</h2>
+<p>When we have <em>two</em> random variables <span class="math inline">X</span> and <span class="math inline">Y</span>, we often want to know whether they move <em>together</em>. The <strong>covariance</strong> is defined as <span class="math display">
+\text{Cov}(X,Y) = E\left[(X - E[X])(Y - E[Y])\right].
+</span></p>
+<p>Covariance is positive when <span class="math inline">X</span> and <span class="math inline">Y</span> tend to be above (or below) their means at the same time, negative when one tends to be above its mean while the other is below, and zero when there is no such linear relationship (though this does <strong>not</strong> imply independence!).</p>
+<p>The problem with covariance is that its magnitude depends on the units in which <span class="math inline">X</span> and <span class="math inline">Y</span> are measured, which makes it hard to interpret. The <strong>correlation coefficient</strong> rescales covariance to always lie between <span class="math inline">-1</span> and <span class="math inline">1</span>: <span class="math display">
+\text{Corr}(X, Y) = \rho_{X,Y} = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)}\sqrt{\text{Var}(Y)}}.
+</span></p>
+<p>Let’s simulate two correlated variables and check this in <code>R</code>. Suppose a household’s log consumption <span class="math inline">Y</span> depends partly on log income <span class="math inline">X</span>, plus some noise:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">7</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>n  <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>x  <span class="ot">=</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">1</span>)       <span class="co"># log income</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>y  <span class="ot">=</span> <span class="fl">0.8</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="fl">0.5</span>)  <span class="co"># log consumption</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7855589</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8425839</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="fu">rgb</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.3</span>),</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"log income"</span>, <span class="at">ylab =</span> <span class="st">"log consumption"</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Correlation:"</span>, <span class="fu">round</span>(<span class="fu">cor</span>(x, y), <span class="dv">2</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02-probability_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice the close connection to what is coming next: a <em>scatterplot</em> like this one, together with the idea of “the best fitting line through the cloud of points,” is exactly the starting point of linear regression, which we study in the next chapters.</p>
+</div>
+</div>
+</section>
+<section id="conditional-probability-and-independence" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="conditional-probability-and-independence"><span class="header-section-number">3.7</span> Conditional Probability and Independence</h2>
+<p>Finally, a brief reminder about <strong>conditional probability</strong>. The probability of event <span class="math inline">A</span> <em>given</em> that event <span class="math inline">B</span> has occurred is <span class="math display">
+P(A \mid B) = \frac{P(A \cap B)}{P(B)}, \qquad \text{provided } P(B) &gt; 0.
+</span></p>
+<p>Two events <span class="math inline">A</span> and <span class="math inline">B</span> are <strong>independent</strong> if knowing that <span class="math inline">B</span> occurred tells us nothing about <span class="math inline">A</span>, i.e. <span class="math display">
+P(A \mid B) = P(A) \qquad \Longleftrightarrow \qquad P(A \cap B) = P(A) P(B).
+</span></p>
+<p>This idea extends to random variables: <span class="math inline">X</span> and <span class="math inline">Y</span> are independent if their joint density factors as <span class="math inline">f(x,y) = f_X(x) f_Y(y)</span>. Independence is a much <em>stronger</em> condition than being uncorrelated (<span class="math inline">\text{Corr}(X,Y) = 0</span>): independent variables are always uncorrelated, but uncorrelated variables need not be independent.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Your turn</strong>: simulate <span class="math inline">X \sim N(0,1)</span> and <span class="math inline">Y = X^2</span>. Compute <code>cor(x, y)</code>. You should find a correlation very close to zero, even though <span class="math inline">Y</span> is a deterministic (and definitely <em>not</em> independent!) function of <span class="math inline">X</span>. This illustrates why “uncorrelated” and “independent” are not the same thing.</p>
+</div>
+</div>
+</section>
+<section id="summary" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="summary"><span class="header-section-number">3.8</span> Summary</h2>
+<ul>
+<li>Random variables can be discrete (described by a PMF) or continuous (described by a PDF/CDF).</li>
+<li>The normal distribution <span class="math inline">N(\mu, \sigma^2)</span> will be our workhorse distribution; <code>R</code>’s <code>dnorm</code>/<code>pnorm</code>/<code>qnorm</code>/<code>rnorm</code> family lets us compute with it directly.</li>
+<li>Expectation <span class="math inline">E[X]</span> and variance <span class="math inline">\text{Var}(X)</span> summarize the center and spread of a random variable; sample means and variances (via <code>mean()</code>, <code>var()</code>, <code>sd()</code>) estimate them from data.</li>
+<li>Covariance and correlation (<code>cov()</code>, <code>cor()</code>) summarize the <em>linear</em> association between two random variables.</li>
+<li>Independence is stronger than zero correlation.</li>
+</ul>
+<p>These tools are exactly what we need to get started with <strong>summary statistics</strong> and <strong>data visualization</strong> in the next chapter, and eventually with <strong>linear regression</strong>, which is nothing other than finding the best-fitting line through a cloud of points like the one we plotted above.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

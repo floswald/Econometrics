@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>13&nbsp; In-Class Exercise: Public Works Cost Overruns Across Italian Provinces – Econometrics</title>
+<title>15&nbsp; In-Class Exercise: Public Works Cost Overruns Across Italian Provinces – Econometrics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -126,7 +126,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cruscotto-opere-pubbliche/exercise.html">Exercises</a></li><li class="breadcrumb-item"><a href="../cruscotto-opere-pubbliche/exercise.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cruscotto-opere-pubbliche/exercise.html">Exercises</a></li><li class="breadcrumb-item"><a href="../cruscotto-opere-pubbliche/exercise.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -202,7 +202,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../07-nonlinear-regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Nonlinear Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Variables and Interactions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -213,20 +213,32 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../13-star.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">STAR Experiment</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../10-panel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Panel Data Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Panel Data Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../11-IV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Instrumental Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Instrumental Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../14-rdd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Regression Discontinuity Design</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../12-discrete.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Discrete Choice Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Discrete Choice Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -241,7 +253,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cruscotto-opere-pubbliche/exercise.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></span></a>
   </div>
 </li>
       </ul>
@@ -262,21 +274,21 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-you-will-do" id="toc-what-you-will-do" class="nav-link active" data-scroll-target="#what-you-will-do"><span class="header-section-number">13.1</span> What you will do</a></li>
-  <li><a href="#step-1-set-up-the-mcp-connection" id="toc-step-1-set-up-the-mcp-connection" class="nav-link" data-scroll-target="#step-1-set-up-the-mcp-connection"><span class="header-section-number">13.2</span> Step 1 — Set up the MCP connection</a></li>
-  <li><a href="#step-2-get-a-feel-for-the-data" id="toc-step-2-get-a-feel-for-the-data" class="nav-link" data-scroll-target="#step-2-get-a-feel-for-the-data"><span class="header-section-number">13.3</span> Step 2 — Get a feel for the data</a></li>
-  <li><a href="#step-3-define-the-outcome-variable" id="toc-step-3-define-the-outcome-variable" class="nav-link" data-scroll-target="#step-3-define-the-outcome-variable"><span class="header-section-number">13.4</span> Step 3 — Define the outcome variable</a></li>
-  <li><a href="#step-4-ask-your-agent-to-build-the-map" id="toc-step-4-ask-your-agent-to-build-the-map" class="nav-link" data-scroll-target="#step-4-ask-your-agent-to-build-the-map"><span class="header-section-number">13.5</span> Step 4 — Ask your agent to build the map</a></li>
-  <li><a href="#step-5-questions-to-answer-hand-in-with-your-map" id="toc-step-5-questions-to-answer-hand-in-with-your-map" class="nav-link" data-scroll-target="#step-5-questions-to-answer-hand-in-with-your-map"><span class="header-section-number">13.6</span> Step 5 — Questions to answer (hand in with your map)</a></li>
+  <li><a href="#what-you-will-do" id="toc-what-you-will-do" class="nav-link active" data-scroll-target="#what-you-will-do"><span class="header-section-number">15.1</span> What you will do</a></li>
+  <li><a href="#step-1-set-up-the-mcp-connection" id="toc-step-1-set-up-the-mcp-connection" class="nav-link" data-scroll-target="#step-1-set-up-the-mcp-connection"><span class="header-section-number">15.2</span> Step 1 — Set up the MCP connection</a></li>
+  <li><a href="#step-2-get-a-feel-for-the-data" id="toc-step-2-get-a-feel-for-the-data" class="nav-link" data-scroll-target="#step-2-get-a-feel-for-the-data"><span class="header-section-number">15.3</span> Step 2 — Get a feel for the data</a></li>
+  <li><a href="#step-3-define-the-outcome-variable" id="toc-step-3-define-the-outcome-variable" class="nav-link" data-scroll-target="#step-3-define-the-outcome-variable"><span class="header-section-number">15.4</span> Step 3 — Define the outcome variable</a></li>
+  <li><a href="#step-4-ask-your-agent-to-build-the-map" id="toc-step-4-ask-your-agent-to-build-the-map" class="nav-link" data-scroll-target="#step-4-ask-your-agent-to-build-the-map"><span class="header-section-number">15.5</span> Step 4 — Ask your agent to build the map</a></li>
+  <li><a href="#step-5-questions-to-answer-hand-in-with-your-map" id="toc-step-5-questions-to-answer-hand-in-with-your-map" class="nav-link" data-scroll-target="#step-5-questions-to-answer-hand-in-with-your-map"><span class="header-section-number">15.6</span> Step 5 — Questions to answer (hand in with your map)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cruscotto-opere-pubbliche/exercise.html">Exercises</a></li><li class="breadcrumb-item"><a href="../cruscotto-opere-pubbliche/exercise.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cruscotto-opere-pubbliche/exercise.html">Exercises</a></li><li class="breadcrumb-item"><a href="../cruscotto-opere-pubbliche/exercise.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></h1>
 <p class="subtitle lead">Using an AI agent connected to open government data (Cruscotto Italia)</p>
 </div>
 
@@ -294,14 +306,14 @@ window.Quarto = {
 </header>
 
 
-<section id="what-you-will-do" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="what-you-will-do"><span class="header-section-number">13.1</span> What you will do</h2>
+<section id="what-you-will-do" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="what-you-will-do"><span class="header-section-number">15.1</span> What you will do</h2>
 <p>You will connect your AI coding assistant (Claude Code, Claude Desktop, or ChatGPT) to a live open-data server about Italian municipalities, pull a dataset on public works contracts, and produce a province-level map. The point of the exercise is not the map itself — it’s learning to (a) find and query a real administrative dataset through an AI agent, and (b) think critically about what the resulting variable actually measures before you interpret it.</p>
 <p>Work in pairs. Bring a laptop with Claude Code (or Claude Desktop / ChatGPT) installed.</p>
 <hr>
 </section>
-<section id="step-1-set-up-the-mcp-connection" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="step-1-set-up-the-mcp-connection"><span class="header-section-number">13.2</span> Step 1 — Set up the MCP connection</h2>
+<section id="step-1-set-up-the-mcp-connection" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="step-1-set-up-the-mcp-connection"><span class="header-section-number">15.2</span> Step 1 — Set up the MCP connection</h2>
 <p>“Cruscotto Italia” (<a href="https://cruscotto-italia.dati.gov.it" class="uri">https://cruscotto-italia.dati.gov.it</a>) aggregates ~27 open datasets (ANAC, BDAP, ISTAT, SIOPE, PNRR, …) for all 7,918 Italian municipalities. It exposes this data to AI assistants through the <strong>Model Context Protocol (MCP)</strong> — a standard that lets a chatbot call live data tools instead of guessing from its training data.</p>
 <ol type="1">
 <li><p>Go to <a href="https://cruscotto-italia.dati.gov.it/about.html#accesso-mcp" class="uri">https://cruscotto-italia.dati.gov.it/about.html#accesso-mcp</a> and read the “5. Accesso” section. Note the four ways the data can be accessed — website, ZIP download, MCP API, CLI skill — and understand why we want the <strong>MCP API</strong> for this exercise (it lets the agent query the data directly from natural-language requests, without you writing any scraping code).</p></li>
@@ -312,8 +324,8 @@ window.Quarto = {
 </ol>
 <hr>
 </section>
-<section id="step-2-get-a-feel-for-the-data" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="step-2-get-a-feel-for-the-data"><span class="header-section-number">13.3</span> Step 2 — Get a feel for the data</h2>
+<section id="step-2-get-a-feel-for-the-data" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="step-2-get-a-feel-for-the-data"><span class="header-section-number">15.3</span> Step 2 — Get a feel for the data</h2>
 <p>Before building the real query, practice with a <strong>different</strong> question so you understand what the tool can return and how to phrase requests. For example, try asking your agent something like:</p>
 <blockquote class="blockquote">
 <p>“Using the Cruscotto Italia data, compare the number of electric vehicle charging points per 1,000 inhabitants between Bologna and Padova.”</p>
@@ -321,8 +333,8 @@ window.Quarto = {
 <p>Look at what comes back: does the agent tell you which underlying dataset it used? Does it cite a source and a reference date? Does it return a single snapshot number or a time series? This matters because the dataset we actually want (public works costs) has similar quirks, and you should know how to spot them.</p>
 <hr>
 </section>
-<section id="step-3-define-the-outcome-variable" class="level2" data-number="13.4">
-<h2 data-number="13.4" class="anchored" data-anchor-id="step-3-define-the-outcome-variable"><span class="header-section-number">13.4</span> Step 3 — Define the outcome variable</h2>
+<section id="step-3-define-the-outcome-variable" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="step-3-define-the-outcome-variable"><span class="header-section-number">15.4</span> Step 3 — Define the outcome variable</h2>
 <p>The dataset we want comes from <strong>BDAP-MOP</strong> (public works projects reported to the Ragioneria Generale dello Stato). Each project carries a <em>planned cost</em> (“costo previsto”) recorded at approval, and an <em>actual cost</em> (“costo effettivo”) recorded as money is spent/accounted for. Our outcome variable, for each Italian <strong>province</strong>, is:</p>
 <p><span class="math display">
 \text{outcome}_p = \frac{1}{N_p}\left(\frac{\text{costo previsto}_p}{\text{costo effettivo}_p}\right)
@@ -331,8 +343,8 @@ window.Quarto = {
 <p>Think for a minute, before moving on, about what values of this ratio you would consider “normal”, and what a very high or very low value might mean.</p>
 <hr>
 </section>
-<section id="step-4-ask-your-agent-to-build-the-map" class="level2" data-number="13.5">
-<h2 data-number="13.5" class="anchored" data-anchor-id="step-4-ask-your-agent-to-build-the-map"><span class="header-section-number">13.5</span> Step 4 — Ask your agent to build the map</h2>
+<section id="step-4-ask-your-agent-to-build-the-map" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="step-4-ask-your-agent-to-build-the-map"><span class="header-section-number">15.5</span> Step 4 — Ask your agent to build the map</h2>
 <p>Now ask your AI agent to produce the data and the map. Structure your request in stages — don’t ask for everything in one giant prompt. Roughly, you want to tell your agent to:</p>
 <ol type="1">
 <li><strong>Find the right tool/dataset.</strong> Ask it to locate, via the MCP connection, public-works cost data (planned vs.&nbsp;actual cost) for Italian municipalities, and to aggregate it to the province level — summing planned cost, actual cost, and project count per province. (Push it to look for a single bulk/aggregated file rather than querying thousands of municipalities one by one — ask it to explain which approach it’s taking and why.)</li>
@@ -351,8 +363,8 @@ window.Quarto = {
 </div>
 <hr>
 </section>
-<section id="step-5-questions-to-answer-hand-in-with-your-map" class="level2" data-number="13.6">
-<h2 data-number="13.6" class="anchored" data-anchor-id="step-5-questions-to-answer-hand-in-with-your-map"><span class="header-section-number">13.6</span> Step 5 — Questions to answer (hand in with your map)</h2>
+<section id="step-5-questions-to-answer-hand-in-with-your-map" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="step-5-questions-to-answer-hand-in-with-your-map"><span class="header-section-number">15.6</span> Step 5 — Questions to answer (hand in with your map)</h2>
 <p>Answer these in a few sentences each, based on what your agent told you and your own judgment — not just what sounds plausible.</p>
 <ol type="1">
 <li><p><strong>What is the time frame of these numbers?</strong> Is “costo previsto” vs. “costo effettivo” measured over the same reference period for every project, or could you be comparing decades-old projects in one province to year-old projects in another? Does “cumulative since the project database began” mean the same thing for a province with mostly finished projects as for one with mostly projects still underway?</p></li>
@@ -768,7 +780,7 @@ window.Quarto = {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../12-discrete.html" class="pagination-link" aria-label="Discrete Choice Methods">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Discrete Choice Methods</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Discrete Choice Methods</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

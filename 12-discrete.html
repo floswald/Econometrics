@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Discrete Choice Methods – Econometrics</title>
+<title>14&nbsp; Discrete Choice Methods – Econometrics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,7 +66,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./cruscotto-opere-pubbliche/exercise.html" rel="next">
-<link href="./11-IV.html" rel="prev">
+<link href="./14-rdd.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -71,6 +106,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -83,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12-discrete.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Discrete Choice Methods</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12-discrete.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Discrete Choice Methods</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -159,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-nonlinear-regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Nonlinear Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Variables and Interactions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -170,20 +248,32 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./13-star.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">STAR Experiment</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./10-panel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Panel Data Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Panel Data Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11-IV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Instrumental Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Instrumental Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-rdd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Regression Discontinuity Design</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12-discrete.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Discrete Choice Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Discrete Choice Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -198,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cruscotto-opere-pubbliche/exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></span></a>
   </div>
 </li>
       </ul>
@@ -214,15 +304,25 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-linear-probability-model" id="toc-the-linear-probability-model" class="nav-link active" data-scroll-target="#the-linear-probability-model"><span class="header-section-number">14.1</span> The Linear Probability Model</a></li>
+  <li><a href="#nonlinear-binary-response-models" id="toc-nonlinear-binary-response-models" class="nav-link" data-scroll-target="#nonlinear-binary-response-models"><span class="header-section-number">14.2</span> Nonlinear Binary Response Models</a>
+  <ul class="collapse">
+  <li><a href="#interpretation-of-coefficients" id="toc-interpretation-of-coefficients" class="nav-link" data-scroll-target="#interpretation-of-coefficients"><span class="header-section-number">14.2.1</span> Interpretation of Coefficients</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-discrete" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Discrete Choice Methods</span></span></h1>
+<h1 class="title"><span id="sec-discrete" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Discrete Choice Methods</span></span></h1>
 </div>
 
 
@@ -239,8 +339,568 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Until now we have encountered only contiunously distributed outcomes on the right hand side of our estimation equations. For example, in our typical linear model, we would define</p>
+<p><span class="math display">
+\begin{align}
+y &amp;= b_0 + b_1 + e \\
+e &amp;\sim N\left(0,\sigma^2\right)
+\end{align}
+</span></p>
+<p>where the second line defines the unobservable <span class="math inline">e</span> to be drawn from the Normal distribution with mean zero and variance <span class="math inline">\sigma^2</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> That means that, at least in principle, <span class="math inline">y</span> could be any number from the real line (<span class="math inline">e</span> could be arbitrarily small or large), and we can say that <span class="math inline">y \in \mathbb{R}</span>.</p>
+<p>For the outcomes we studied, that was fine: test scores, earnings, crime rates etc are all continuous outcomes. But some outcomes are clearly binary (i.e.&nbsp;either <code>TRUE</code> or <code>FALSE</code>):</p>
+<ul>
+<li>You either work or you don’t,</li>
+<li>You either have children or you don’t,</li>
+<li>You either bought a product or you didn’t,</li>
+<li>You flipped a coin and it came up either heads or tails.</li>
+</ul>
+<p>In this situation, our outcome is restricted to come from a small set of values: <code>FALSE</code> vs <code>TRUE</code>, or <code>0</code> vs <code>1</code>. We’d have <span class="math inline">y \in  \{0,1\}</span>. In those situations we are primarily interested in estimating the <strong>response probability</strong> or the <strong>probability of success</strong>,</p>
+<p><span class="math display">
+p(x) = \Pr(y=1 | x),
+</span> or in words, <em>the probability to observe <span class="math inline">y=1</span> (a success), given explanatory variables <span class="math inline">x</span></em>. In particular, we will often be interested in learning how <span class="math inline">p(x)</span> changes as we change <span class="math inline">x</span> - that is, we are interested in the same <em>partial effect</em> of <span class="math inline">x</span> on the outcome as in our usual linear regression setup. Here, we ask</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If we increase <span class="math inline">x</span> by one unit, how would the probability of <span class="math inline">y=1</span> change?</p>
+</div>
+</div>
+<p>It is worth reminding ourselves about two simple facts about binary random variables (i.e drawn from the <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli</a> distribution). So, we call a random variable <span class="math inline">y \in \{0,1\}</span> such that</p>
+<p><span class="math display">
+\begin{align}
+\Pr(y = 1) &amp;= p \\
+\Pr(y = 0) &amp;= 1-p \\
+p &amp;\in[0,1]
+\end{align}
+</span></p>
+<p>a <em>Bernoulli</em> random variable. In our setting, we just <em>condition</em> those probabilities on a covariate <span class="math inline">x</span>, as above - that is, we measure the probability <em>given that <span class="math inline">X</span> takes value <span class="math inline">x</span></em>:</p>
+<p><span class="math display">
+\begin{align}
+\Pr(y = 1 | X = x) &amp;= p(x) \\
+\Pr(y = 0 | X = x) &amp;= 1-p(x) \\
+p(x) &amp;\in[0,1]
+\end{align}
+</span></p>
+<p>Of particular interest for us is the fact that the <em>expected value</em> (i.e.&nbsp;the average) of <span class="math inline">Y</span> given <span class="math inline">x</span> is</p>
+<p><span class="math display">
+E[y | x] = p(x) \times 1 + (1-p(x)) \times 0 = p(x)
+</span></p>
+<p>There are several ways to model such binary outcomes. Let’s look at them.</p>
+<section id="the-linear-probability-model" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="the-linear-probability-model"><span class="header-section-number">14.1</span> The Linear Probability Model</h2>
+<p>The Linear Probability Model (LPM) is the simplest option. In this case, we model the response probability as</p>
+<p><span id="eq-lpm"><span class="math display">
+\Pr(y = 1 | x) = p(x) = \beta_0 + \beta_1 x_1 + \dots + \beta_K x_K
+\tag{14.1}</span></span></p>
+<p>Our interpretation is slightly changed to our usual setup, as we’d say <em>a 1 unit change in <span class="math inline">x_1</span>, say, results in a change of <span class="math inline">p(x)</span> of <span class="math inline">\beta_1</span>.</em></p>
+<p>Estimation of the LPM as in equation <a href="#eq-lpm" class="quarto-xref">Equation&nbsp;<span>14.1</span></a> can be performed by standard OLS. Let’s look at an example. The Mroz (1987) dataset let’s us investigate female labor market participation. How does a woman’s <code>inlf</code> (<em>in labor force</em>) status depend on non-wife household income, her education, age and number of small children? First, let’s look at a quick plot that shows how the outcome varies with 1 variable, age say:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mroz, <span class="at">package =</span> <span class="st">"wooldridge"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">factor</span>(inlf) <span class="sc">~</span> age, <span class="at">data =</span> mroz,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylevels =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">1</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"in labor force?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-discrete_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Not so much variation with respect to age, except for the later years. Let’s run the LPM now:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>LPM <span class="ot">=</span> <span class="fu">lm</span>(inlf <span class="sc">~</span> nwifeinc <span class="sc">+</span> educ <span class="sc">+</span> exper</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>         <span class="sc">+</span> <span class="fu">I</span>(exper<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> age <span class="sc">+</span><span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> kidslt6, mroz)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(LPM)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = inlf ~ nwifeinc + educ + exper + I(exper^2) + age + 
+    I(age^2) + kidslt6, data = mroz)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.94194 -0.37773  0.08935  0.34283  0.97979 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.3219554  0.4863667   0.662  0.50820    
+nwifeinc    -0.0034271  0.0014531  -2.358  0.01861 *  
+educ         0.0374662  0.0073476   5.099 4.33e-07 ***
+exper        0.0382568  0.0057700   6.630 6.44e-11 ***
+I(exper^2)  -0.0005649  0.0001895  -2.981  0.00296 ** 
+age         -0.0011177  0.0225100  -0.050  0.96041    
+I(age^2)    -0.0001822  0.0002581  -0.706  0.48044    
+kidslt6     -0.2603675  0.0340826  -7.639 6.72e-14 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.4273 on 745 degrees of freedom
+Multiple R-squared:  0.2637,    Adjusted R-squared:  0.2568 
+F-statistic: 38.13 on 7 and 745 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>You can see that this is <em>identical</em> to our previous linear regression models - with the exception that the outcome <code>inlf</code> takes on only two values, 0 or 1. The results from this: if non-wife income increases by 10 (i.e 10,000 USD), the probability of being in the labor force falls by 0.034 (that’s a small effect!), whereas an additional small child would reduce the probability of work by 0.26 (that’s large). So far, so simple.</p>
+<p>One often-mentioned problem of this model is that fact that nothing restricts our predictions of <span class="math inline">p(x)</span> to be proper probabilities, i.e.&nbsp;to lie in the unit interval <span class="math inline">[0,1]</span>. You can see that quite easily here:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pr <span class="ot">=</span> <span class="fu">predict</span>(LPM)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pr[<span class="fu">order</span>(pr)],<span class="at">ylab =</span> <span class="st">"p(inlf = 1)"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> <span class="dv">0</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="12-discrete_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This picture tells you that for quite a few observations, this model predicts a probability of working which is either greater than 1, or smaller than zero. This may or may not be a big problem for your analysis. If you only care about marginal effects (i.e.&nbsp;the <span class="math inline">\beta</span>s, that may be ok, in particular if you have discrete variables on the RHS; if you want actual <em>predictions</em> than that’s more problematic).</p>
+<p>In the case of a <em>saturated model</em> - if we only have dummy explanatory variables - then this problem does not exist for the LPM:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>mroz <span class="sc">%&lt;&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># classify age into 3 and huswage into 2 classes</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_fct =</span> <span class="fu">cut</span>(age,<span class="at">breaks =</span> <span class="dv">3</span>,<span class="at">labels =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">huswage_fct =</span> <span class="fu">cut</span>(huswage, <span class="at">breaks =</span> <span class="dv">2</span>,<span class="at">labels =</span> <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">classes =</span> <span class="fu">paste0</span>(<span class="st">"age_"</span>,age_fct,<span class="st">"_hus_"</span>,huswage_fct))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>LPM_saturated <span class="ot">=</span> mroz <span class="sc">%&gt;%</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(inlf <span class="sc">~</span> age_fct <span class="sc">+</span> huswage_fct, <span class="at">data =</span> .)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>mroz<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(LPM_saturated)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mroz[<span class="fu">order</span>(mroz<span class="sc">$</span>pred),], <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(mroz),<span class="at">y =</span> pred,<span class="at">color =</span> classes)) <span class="sc">+</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">name =</span> <span class="st">"p(inlf)"</span>) <span class="sc">+</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"LPM in a Saturated Model is Perfectly Fine"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-saturated" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-saturated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="12-discrete_files/figure-html/fig-saturated-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-saturated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.1: LPM model in a saturated setting, i.e.&nbsp;only mutually exhaustive dummy variables on the RHS.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In figure <a href="#fig-saturated" class="quarto-xref">Figure&nbsp;<span>14.1</span></a> each line segment corresponds to the average probability of work <em>within that cell</em> of people. For example you see that women from the youngest age category and lowest husband income (class <code>age_1_hus_1</code>) have the highest probability of working (0.621).</p>
+</section>
+<section id="nonlinear-binary-response-models" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="nonlinear-binary-response-models"><span class="header-section-number">14.2</span> Nonlinear Binary Response Models</h2>
+<p>In this class of models we change the way we model the response probability <span class="math inline">p(x)</span>. Instead of the simple linear structure from above, we write</p>
+<p><span id="eq-glm"><span class="math display">
+\Pr(y = 1 | x) = p(x) = G \left(\beta_0 + \beta_1 x_1 + \dots + \beta_K x_K \right)
+\tag{14.2}</span></span></p>
+<p>You note that this is <em>almost</em> identical, only that the entire sum <span class="math inline">\beta_0 + \beta_1 x_1 + \dots + \beta_K x_K</span> is now inside some function <span class="math inline">G(\cdot)</span>. The main property of <span class="math inline">G</span> is that it can transform any value <span class="math inline">z\in \mathbb{R}</span> you give it to a number in the interval <span class="math inline">(0,1)</span>. This immediately solves our problem of getting weird predictions for probabilities. The two most widely used forms of <span class="math inline">G</span> are the <strong>probit</strong> and the <strong>logit</strong> model. here are both forms for <span class="math inline">G</span> in one plot:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>,<span class="dv">5</span>)), <span class="fu">aes</span>(<span class="at">x=</span>x)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> pnorm, <span class="fu">aes</span>(<span class="at">colour =</span> <span class="st">"Probit"</span>)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> plogis, <span class="fu">aes</span>(<span class="at">colour =</span> <span class="st">"Logit"</span>)) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">name =</span> <span class="st">"Function G"</span>,<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Pr(y = 1 | x)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-cdfs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cdfs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="12-discrete_files/figure-html/fig-cdfs-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cdfs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14.2: The Probit and Logit functional forms for binary choice models
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>You can see that</p>
+<ol type="1">
+<li>any value <span class="math inline">x</span> results in a value <span class="math inline">y</span> between 0 and 1</li>
+<li>the higher <span class="math inline">x</span>, the higher the resulting <span class="math inline">p(x)</span>.</li>
+</ol>
+<section id="interpretation-of-coefficients" class="level3" data-number="14.2.1">
+<h3 data-number="14.2.1" class="anchored" data-anchor-id="interpretation-of-coefficients"><span class="header-section-number">14.2.1</span> Interpretation of Coefficients</h3>
+<p>Let’s run the Mroz example from above in both probit and logit now:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(inlf <span class="sc">~</span> age,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> mroz,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(inlf <span class="sc">~</span> age,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> mroz,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(<span class="fu">list</span>(<span class="st">"probit"</span> <span class="ot">=</span> probit,<span class="st">"logit"</span> <span class="ot">=</span> logit))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_41ivryovd1g09fuelslv = TinyTable.createTableFunctions("tinytable_41ivryovd1g09fuelslv");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '10', j: 2 }, { i: '10', j: 3 } ], css_id: 'tinytable_css_0tims1fs5t531bhtidhg',}, 
+          { positions: [ { i: '4', j: 2 }, { i: '4', j: 3 } ], css_id: 'tinytable_css_bpcldve9hdgag3ltqvuk',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 } ], css_id: 'tinytable_css_flxfbwqd8ywxkmwmpzt0',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_p0p52b233y0alefb3ikr',}, 
+          { positions: [ { i: '10', j: 1 } ], css_id: 'tinytable_css_wgp59llfhmc4e4o3u07a',}, 
+          { positions: [ { i: '4', j: 1 } ], css_id: 'tinytable_css_yoepvazufj4jet76nxqp',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 } ], css_id: 'tinytable_css_5mglvaennggdghs6vpgv',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_pdad5nl8bix6eya1yxjp',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_41ivryovd1g09fuelslv.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+    <style>
+    /* tinytable css entries after */
+    #tinytable_41ivryovd1g09fuelslv td.tinytable_css_0tims1fs5t531bhtidhg, #tinytable_41ivryovd1g09fuelslv th.tinytable_css_0tims1fs5t531bhtidhg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_41ivryovd1g09fuelslv td.tinytable_css_bpcldve9hdgag3ltqvuk, #tinytable_41ivryovd1g09fuelslv th.tinytable_css_bpcldve9hdgag3ltqvuk {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_41ivryovd1g09fuelslv td.tinytable_css_flxfbwqd8ywxkmwmpzt0, #tinytable_41ivryovd1g09fuelslv th.tinytable_css_flxfbwqd8ywxkmwmpzt0 { text-align: center }
+    #tinytable_41ivryovd1g09fuelslv td.tinytable_css_p0p52b233y0alefb3ikr, #tinytable_41ivryovd1g09fuelslv th.tinytable_css_p0p52b233y0alefb3ikr {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_41ivryovd1g09fuelslv td.tinytable_css_wgp59llfhmc4e4o3u07a, #tinytable_41ivryovd1g09fuelslv th.tinytable_css_wgp59llfhmc4e4o3u07a {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_41ivryovd1g09fuelslv td.tinytable_css_yoepvazufj4jet76nxqp, #tinytable_41ivryovd1g09fuelslv th.tinytable_css_yoepvazufj4jet76nxqp {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_41ivryovd1g09fuelslv td.tinytable_css_5mglvaennggdghs6vpgv, #tinytable_41ivryovd1g09fuelslv th.tinytable_css_5mglvaennggdghs6vpgv { text-align: left }
+    #tinytable_41ivryovd1g09fuelslv td.tinytable_css_pdad5nl8bix6eya1yxjp, #tinytable_41ivryovd1g09fuelslv th.tinytable_css_pdad5nl8bix6eya1yxjp {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_41ivryovd1g09fuelslv" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">probit</th>
+                <th scope="col" data-row="0" data-col="3">logit</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">(Intercept)</td>
+                  <td data-row="1" data-col="2">0.707</td>
+                  <td data-row="1" data-col="3">1.136</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1"></td>
+                  <td data-row="2" data-col="2">(0.248)</td>
+                  <td data-row="2" data-col="3">(0.398)</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1">age</td>
+                  <td data-row="3" data-col="2">-0.013</td>
+                  <td data-row="3" data-col="3">-0.020</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1"></td>
+                  <td data-row="4" data-col="2">(0.006)</td>
+                  <td data-row="4" data-col="3">(0.009)</td>
+                </tr>
+                <tr>
+                  <td data-row="5" data-col="1">Num.Obs.</td>
+                  <td data-row="5" data-col="2">753</td>
+                  <td data-row="5" data-col="3">753</td>
+                </tr>
+                <tr>
+                  <td data-row="6" data-col="1">AIC</td>
+                  <td data-row="6" data-col="2">1028.9</td>
+                  <td data-row="6" data-col="3">1028.9</td>
+                </tr>
+                <tr>
+                  <td data-row="7" data-col="1">BIC</td>
+                  <td data-row="7" data-col="2">1038.1</td>
+                  <td data-row="7" data-col="3">1038.1</td>
+                </tr>
+                <tr>
+                  <td data-row="8" data-col="1">Log.Lik.</td>
+                  <td data-row="8" data-col="2">-512.442</td>
+                  <td data-row="8" data-col="3">-512.431</td>
+                </tr>
+                <tr>
+                  <td data-row="9" data-col="1">F</td>
+                  <td data-row="9" data-col="2">4.828</td>
+                  <td data-row="9" data-col="3">4.858</td>
+                </tr>
+                <tr>
+                  <td data-row="10" data-col="1">RMSE</td>
+                  <td data-row="10" data-col="2">0.49</td>
+                  <td data-row="10" data-col="3">0.49</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+<p>From this table, we learn that the coefficient for <code>age</code> is -0.013 for probit and -0.02 for logit, respectively. In both cases, this tells us that the impact of an additional year of age on the probability of working is <strong>negative</strong>. However, we cannot straightforwardly read off the <em>magnitude</em> of the effect - <strong>how much</strong> does the probability decrease we can’t tell. Why is that?</p>
+<p>One simple way to see this is to look back at figure <a href="#fig-cdfs" class="quarto-xref">Figure&nbsp;<span>14.2</span></a> and imagine we had just one explanatory variable (like here - <code>age</code>). The model is</p>
+<p><span class="math display">
+\Pr(y = 1 | \text{age})= G \left(x \beta\right) = G \left(\beta_0 + \beta_1 \text{age} \right)
+</span> and the <em>marginal effect</em> of <code>age</code> on the response probability is <span id="eq-me"><span class="math display">
+\frac{\partial{\Pr(y = 1 | \text{age})}}{ \partial{\text{age}}} = g \left(\beta_0 + \beta_1 \text{age} \right) \beta_1
+\tag{14.3}</span></span></p>
+<p>where function <span class="math inline">g</span> is defined as <span class="math inline">g(z) = \frac{dG}{dz}(z)</span> - the first derivative function of <span class="math inline">G</span> (i.e.&nbsp;the <em>slope</em> of <span class="math inline">G</span>). The formulation in <a href="#eq-me" class="quarto-xref">Equation&nbsp;<span>14.3</span></a> is a result of the <a href="https://en.wikipedia.org/wiki/Chain_rule">chain rule</a>. Now, given that in figure <a href="#fig-cdfs" class="quarto-xref">Figure&nbsp;<span>14.2</span></a> we see <span class="math inline">G</span> that is nonlinear, this means that also <span class="math inline">g</span> will be non-linear: sometimes (close to the edges of the graph) the slope will be really small and close to zero, but sometimes (in the center of the graph), the slope will be really steep. You are able to try this out yourself using this app:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ScPoApps<span class="sc">::</span><span class="fu">launchApp</span>(<span class="st">"marginal_effects_of_logit_probit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>So you can see that there is not one single <em>marginal effect</em> in those models, as that depends on <em>where we evaluate</em> expression <a href="#eq-me" class="quarto-xref">Equation&nbsp;<span>14.3</span></a>. Notice that the case is identical for more than one <span class="math inline">x</span>. In practice, there are two common approaches:</p>
+<ol type="1">
+<li>report <a href="#eq-me" class="quarto-xref">Equation&nbsp;<span>14.3</span></a> at the average values of <span class="math inline">x</span>: <span class="math display">g(\bar{x} \beta) \beta_j</span></li>
+<li>report the sample average of all marginal effects: <span class="math display">\frac{1}{n} \sum_{i=1}^N g(x_i \beta) \beta_j</span></li>
+</ol>
+<p>Thankfully there are packages available that help us to compute those marginal effects fairly easily. One of them is called <a href="https://cran.r-project.org/web/packages/mfx/"><code>mfx</code></a>, and we would use it as follows:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="st">"inlf ~ age + kidslt6 + nwifeinc"</span> <span class="co"># setup a formula</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>glms <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the marginal effects versions (their `conditional` rows below reproduce</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the raw probit/logit coefficients from the table above exactly)</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>glms<span class="sc">$</span>probitMean <span class="ot">&lt;-</span> mfx<span class="sc">::</span><span class="fu">probitmfx</span>(<span class="at">formula =</span> f,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> mroz, <span class="at">atmean =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>glms<span class="sc">$</span>probitAvg <span class="ot">&lt;-</span> mfx<span class="sc">::</span><span class="fu">probitmfx</span>(<span class="at">formula =</span> f,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> mroz, <span class="at">atmean =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>glms<span class="sc">$</span>logitMean <span class="ot">&lt;-</span> mfx<span class="sc">::</span><span class="fu">logitmfx</span>(<span class="at">formula =</span> f,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> mroz, <span class="at">atmean =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>glms<span class="sc">$</span>logitAvg <span class="ot">&lt;-</span> mfx<span class="sc">::</span><span class="fu">logitmfx</span>(<span class="at">formula =</span> f,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> mroz, <span class="at">atmean =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(glms,</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                           <span class="at">stars =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                           <span class="at">gof_omit =</span> <span class="st">"AIC|BIC"</span>,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                           <span class="at">shape =</span> term <span class="sc">+</span> component <span class="sc">~</span> model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-glms" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-glms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;14.1: Logit and Probit estimates and marginal effects evaluated at mean of x or as sample average of effects
+</figcaption>
+<div aria-describedby="tbl-glms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_r503bnzh35xv7fljqojk = TinyTable.createTableFunctions("tinytable_r503bnzh35xv7fljqojk");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '16', j: 3 }, { i: '16', j: 4 }, { i: '16', j: 5 }, { i: '16', j: 6 } ], css_id: 'tinytable_css_cwhxjawex7fwggboi20c',}, 
+          { positions: [ { i: '14', j: 3 }, { i: '14', j: 4 }, { i: '14', j: 5 }, { i: '14', j: 6 } ], css_id: 'tinytable_css_3ihzw3zdgk82t6nn5xsd',}, 
+          { positions: [ { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '15', j: 3 }, { i: '1', j: 4 }, { i: '2', j: 4 }, { i: '3', j: 4 }, { i: '4', j: 4 }, { i: '5', j: 4 }, { i: '6', j: 4 }, { i: '7', j: 4 }, { i: '8', j: 4 }, { i: '9', j: 4 }, { i: '10', j: 4 }, { i: '11', j: 4 }, { i: '12', j: 4 }, { i: '13', j: 4 }, { i: '15', j: 4 }, { i: '1', j: 5 }, { i: '2', j: 5 }, { i: '3', j: 5 }, { i: '4', j: 5 }, { i: '5', j: 5 }, { i: '6', j: 5 }, { i: '7', j: 5 }, { i: '8', j: 5 }, { i: '9', j: 5 }, { i: '10', j: 5 }, { i: '11', j: 5 }, { i: '12', j: 5 }, { i: '13', j: 5 }, { i: '15', j: 5 }, { i: '1', j: 6 }, { i: '2', j: 6 }, { i: '3', j: 6 }, { i: '4', j: 6 }, { i: '5', j: 6 }, { i: '6', j: 6 }, { i: '7', j: 6 }, { i: '8', j: 6 }, { i: '9', j: 6 }, { i: '10', j: 6 }, { i: '11', j: 6 }, { i: '12', j: 6 }, { i: '13', j: 6 }, { i: '15', j: 6 } ], css_id: 'tinytable_css_2clq4gstg12hhvqani5i',}, 
+          { positions: [ { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 }, { i: '0', j: 6 } ], css_id: 'tinytable_css_fgsmxmuzblrdkaex1ewl',}, 
+          { positions: [ { i: '16', j: 1 }, { i: '16', j: 2 } ], css_id: 'tinytable_css_2zyd0ixibp0v81x5yjq2',}, 
+          { positions: [ { i: '14', j: 1 }, { i: '14', j: 2 } ], css_id: 'tinytable_css_kf3jqb50kj96trqx9bii',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '15', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '15', j: 2 } ], css_id: 'tinytable_css_uyx8uj5d2gpg4n9rt2fs',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_8q3g5quladvby3t24uee',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_r503bnzh35xv7fljqojk.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+    <style>
+    /* tinytable css entries after */
+    #tinytable_r503bnzh35xv7fljqojk td.tinytable_css_cwhxjawex7fwggboi20c, #tinytable_r503bnzh35xv7fljqojk th.tinytable_css_cwhxjawex7fwggboi20c {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_r503bnzh35xv7fljqojk td.tinytable_css_3ihzw3zdgk82t6nn5xsd, #tinytable_r503bnzh35xv7fljqojk th.tinytable_css_3ihzw3zdgk82t6nn5xsd {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_r503bnzh35xv7fljqojk td.tinytable_css_2clq4gstg12hhvqani5i, #tinytable_r503bnzh35xv7fljqojk th.tinytable_css_2clq4gstg12hhvqani5i { text-align: center }
+    #tinytable_r503bnzh35xv7fljqojk td.tinytable_css_fgsmxmuzblrdkaex1ewl, #tinytable_r503bnzh35xv7fljqojk th.tinytable_css_fgsmxmuzblrdkaex1ewl {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_r503bnzh35xv7fljqojk td.tinytable_css_2zyd0ixibp0v81x5yjq2, #tinytable_r503bnzh35xv7fljqojk th.tinytable_css_2zyd0ixibp0v81x5yjq2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_r503bnzh35xv7fljqojk td.tinytable_css_kf3jqb50kj96trqx9bii, #tinytable_r503bnzh35xv7fljqojk th.tinytable_css_kf3jqb50kj96trqx9bii {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_r503bnzh35xv7fljqojk td.tinytable_css_uyx8uj5d2gpg4n9rt2fs, #tinytable_r503bnzh35xv7fljqojk th.tinytable_css_uyx8uj5d2gpg4n9rt2fs { text-align: left }
+    #tinytable_r503bnzh35xv7fljqojk td.tinytable_css_8q3g5quladvby3t24uee, #tinytable_r503bnzh35xv7fljqojk th.tinytable_css_8q3g5quladvby3t24uee {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_r503bnzh35xv7fljqojk" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">component</th>
+                <th scope="col" data-row="0" data-col="3">probitMean</th>
+                <th scope="col" data-row="0" data-col="4">probitAvg</th>
+                <th scope="col" data-row="0" data-col="5">logitMean</th>
+                <th scope="col" data-row="0" data-col="6">logitAvg</th>
+              </tr>
+        </thead>
+        <tfoot><tr><td colspan="6">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td></tr></tfoot>
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">age</td>
+                  <td data-row="1" data-col="2">marginal</td>
+                  <td data-row="1" data-col="3">-0.014***</td>
+                  <td data-row="1" data-col="4">-0.013***</td>
+                  <td data-row="1" data-col="5">-0.014***</td>
+                  <td data-row="1" data-col="6">-0.013***</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1"></td>
+                  <td data-row="2" data-col="2"></td>
+                  <td data-row="2" data-col="3">(0.003)</td>
+                  <td data-row="2" data-col="4">(0.002)</td>
+                  <td data-row="2" data-col="5">(0.003)</td>
+                  <td data-row="2" data-col="6">(0.003)</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1"></td>
+                  <td data-row="3" data-col="2">conditional</td>
+                  <td data-row="3" data-col="3">-0.035***</td>
+                  <td data-row="3" data-col="4">-0.035***</td>
+                  <td data-row="3" data-col="5">-0.057***</td>
+                  <td data-row="3" data-col="6">-0.057***</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1"></td>
+                  <td data-row="4" data-col="2"></td>
+                  <td data-row="4" data-col="3">(0.007)</td>
+                  <td data-row="4" data-col="4">(0.007)</td>
+                  <td data-row="4" data-col="5">(0.011)</td>
+                  <td data-row="4" data-col="6">(0.011)</td>
+                </tr>
+                <tr>
+                  <td data-row="5" data-col="1">kidslt6</td>
+                  <td data-row="5" data-col="2">marginal</td>
+                  <td data-row="5" data-col="3">-0.314***</td>
+                  <td data-row="5" data-col="4">-0.290***</td>
+                  <td data-row="5" data-col="5">-0.322***</td>
+                  <td data-row="5" data-col="6">-0.292***</td>
+                </tr>
+                <tr>
+                  <td data-row="6" data-col="1"></td>
+                  <td data-row="6" data-col="2"></td>
+                  <td data-row="6" data-col="3">(0.044)</td>
+                  <td data-row="6" data-col="4">(0.036)</td>
+                  <td data-row="6" data-col="5">(0.046)</td>
+                  <td data-row="6" data-col="6">(0.047)</td>
+                </tr>
+                <tr>
+                  <td data-row="7" data-col="1"></td>
+                  <td data-row="7" data-col="2">conditional</td>
+                  <td data-row="7" data-col="3">-0.800***</td>
+                  <td data-row="7" data-col="4">-0.800***</td>
+                  <td data-row="7" data-col="5">-1.313***</td>
+                  <td data-row="7" data-col="6">-1.313***</td>
+                </tr>
+                <tr>
+                  <td data-row="8" data-col="1"></td>
+                  <td data-row="8" data-col="2"></td>
+                  <td data-row="8" data-col="3">(0.111)</td>
+                  <td data-row="8" data-col="4">(0.111)</td>
+                  <td data-row="8" data-col="5">(0.188)</td>
+                  <td data-row="8" data-col="6">(0.188)</td>
+                </tr>
+                <tr>
+                  <td data-row="9" data-col="1">nwifeinc</td>
+                  <td data-row="9" data-col="2">marginal</td>
+                  <td data-row="9" data-col="3">-0.004**</td>
+                  <td data-row="9" data-col="4">-0.004**</td>
+                  <td data-row="9" data-col="5">-0.005**</td>
+                  <td data-row="9" data-col="6">-0.004**</td>
+                </tr>
+                <tr>
+                  <td data-row="10" data-col="1"></td>
+                  <td data-row="10" data-col="2"></td>
+                  <td data-row="10" data-col="3">(0.002)</td>
+                  <td data-row="10" data-col="4">(0.001)</td>
+                  <td data-row="10" data-col="5">(0.002)</td>
+                  <td data-row="10" data-col="6">(0.002)</td>
+                </tr>
+                <tr>
+                  <td data-row="11" data-col="1"></td>
+                  <td data-row="11" data-col="2">conditional</td>
+                  <td data-row="11" data-col="3">-0.011**</td>
+                  <td data-row="11" data-col="4">-0.011**</td>
+                  <td data-row="11" data-col="5">-0.019**</td>
+                  <td data-row="11" data-col="6">-0.019**</td>
+                </tr>
+                <tr>
+                  <td data-row="12" data-col="1"></td>
+                  <td data-row="12" data-col="2"></td>
+                  <td data-row="12" data-col="3">(0.004)</td>
+                  <td data-row="12" data-col="4">(0.004)</td>
+                  <td data-row="12" data-col="5">(0.007)</td>
+                  <td data-row="12" data-col="6">(0.007)</td>
+                </tr>
+                <tr>
+                  <td data-row="13" data-col="1">(Intercept)</td>
+                  <td data-row="13" data-col="2"></td>
+                  <td data-row="13" data-col="3">2.080***</td>
+                  <td data-row="13" data-col="4">2.080***</td>
+                  <td data-row="13" data-col="5">3.394***</td>
+                  <td data-row="13" data-col="6">3.394***</td>
+                </tr>
+                <tr>
+                  <td data-row="14" data-col="1"></td>
+                  <td data-row="14" data-col="2"></td>
+                  <td data-row="14" data-col="3">(0.309)</td>
+                  <td data-row="14" data-col="4">(0.309)</td>
+                  <td data-row="14" data-col="5">(0.516)</td>
+                  <td data-row="14" data-col="6">(0.516)</td>
+                </tr>
+                <tr>
+                  <td data-row="15" data-col="1">Num.Obs.</td>
+                  <td data-row="15" data-col="2"></td>
+                  <td data-row="15" data-col="3">753</td>
+                  <td data-row="15" data-col="4">753</td>
+                  <td data-row="15" data-col="5">753</td>
+                  <td data-row="15" data-col="6">753</td>
+                </tr>
+                <tr>
+                  <td data-row="16" data-col="1">RMSE</td>
+                  <td data-row="16" data-col="2"></td>
+                  <td data-row="16" data-col="3">0.47</td>
+                  <td data-row="16" data-col="4">0.47</td>
+                  <td data-row="16" data-col="5">0.47</td>
+                  <td data-row="16" data-col="6">0.47</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>In table <a href="#tbl-glms" class="quarto-xref">Table&nbsp;<span>14.1</span></a> you should first note that the <code>conditional</code> rows (the raw <span class="math inline">\beta</span>’s — identical to the probit/logit coefficients in the table above) don’t correspond to the <code>marginal</code> rows. As we have learned above, the raw coefficients alone are not informative, as the implied marginal effect depends on <em>where</em> one computes it. Hence the <code>marginal</code> rows compute the marginal effects either at the mean of all regressors (<code>probitMean</code>) or as the sample average over all effects in the data (<code>probitAvg</code>). You can notice some differences here, for example we find at the average regressor, an additional child below age of 6 reduces the probability of work by 0.314, whereas as an averag over all sample effects it reduces it by 0.29. Furthermore, you see that the marginal effect estimates between probit and logit don’t correspond exactly, which is a consequence of the different shapes of the curves in figure <a href="#fig-cdfs" class="quarto-xref">Figure&nbsp;<span>14.2</span></a>. No one approach is correct here and depends on how your data is distributed (e.g.&nbsp;is the mean a good summary of the data here?). What is clear, though, is that in most cases reporting coefficient estimates only is not very informative (it only tells you the direction of any effect).</p>
 
 
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>We have not insisted too much on the fact that <span class="math inline">e</span> should be distributed according to the <em>Normal</em> distribution (this is required in particular for the theoretical derivation of standard errors, as discussed in the chapter on hypothesis testing, <a href="05-hypothesis-tests.html" class="quarto-xref"><span>Chapter 6</span></a>). However, we’d always have an unbounded and continuous distribution underlying our models<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -645,13 +1305,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./11-IV.html" class="pagination-link" aria-label="Instrumental Variables">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Instrumental Variables</span></span>
+      <a href="./14-rdd.html" class="pagination-link" aria-label="Regression Discontinuity Design">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Regression Discontinuity Design</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./cruscotto-opere-pubbliche/exercise.html" class="pagination-link" aria-label="In-Class Exercise: Public Works Cost Overruns Across Italian Provinces">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Panel Data Methods – Econometrics</title>
+<title>11&nbsp; Panel Data Methods – Econometrics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,7 +66,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./11-IV.html" rel="next">
-<link href="./09-potential-issues.html" rel="prev">
+<link href="./13-star.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -71,6 +106,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -83,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10-panel.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Panel Data Methods</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10-panel.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Panel Data Methods</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -159,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-nonlinear-regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Nonlinear Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Categorical Variables and Interactions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -170,20 +248,32 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./13-star.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">STAR Experiment</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./10-panel.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Panel Data Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Panel Data Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11-IV.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Instrumental Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Instrumental Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-rdd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Regression Discontinuity Design</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./12-discrete.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Discrete Choice Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Discrete Choice Methods</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -198,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cruscotto-opere-pubbliche/exercise.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">In-Class Exercise: Public Works Cost Overruns Across Italian Provinces</span></span></a>
   </div>
 </li>
       </ul>
@@ -214,15 +304,28 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#crime-rate-vs-probability-of-arrest" id="toc-crime-rate-vs-probability-of-arrest" class="nav-link active" data-scroll-target="#crime-rate-vs-probability-of-arrest"><span class="header-section-number">11.1</span> Crime Rate vs Probability of Arrest</a></li>
+  <li><a href="#panel-data-estimation-with-r" id="toc-panel-data-estimation-with-r" class="nav-link" data-scroll-target="#panel-data-estimation-with-r"><span class="header-section-number">11.2</span> Panel Data Estimation with <code>R</code></a>
+  <ul class="collapse">
+  <li><a href="#dummy-variable-regression" id="toc-dummy-variable-regression" class="nav-link" data-scroll-target="#dummy-variable-regression"><span class="header-section-number">11.2.1</span> Dummy Variable Regression</a></li>
+  <li><a href="#first-differencing" id="toc-first-differencing" class="nav-link" data-scroll-target="#first-differencing"><span class="header-section-number">11.2.2</span> First Differencing</a></li>
+  <li><a href="#the-within-transformation" id="toc-the-within-transformation" class="nav-link" data-scroll-target="#the-within-transformation"><span class="header-section-number">11.2.3</span> The Within Transformation</a></li>
+  <li><a href="#using-a-package" id="toc-using-a-package" class="nav-link" data-scroll-target="#using-a-package"><span class="header-section-number">11.2.4</span> Using a Package</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-panel" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Panel Data Methods</span></span></h1>
+<h1 class="title"><span id="sec-panel" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Panel Data Methods</span></span></h1>
 </div>
 
 
@@ -239,8 +342,624 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="crime-rate-vs-probability-of-arrest" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="crime-rate-vs-probability-of-arrest"><span class="header-section-number">11.1</span> Crime Rate vs Probability of Arrest</h2>
+<p>This part draws heavily on <a href="http://nickchk.com">Nick C Huntington-Klein’s</a> outstanding <a href="https://github.com/NickCH-K/EconometricsSlides">slides</a>. 🙏</p>
+<p>Up until now we have dealt with data that looked like the following, where <code>County</code> is the idendifier for a county, <code>CrimeRate</code> is the number of crimes committed by person, and <code>ProbofArrest</code> is the probability of arrest, given crime committed:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(crime4,<span class="at">package =</span> <span class="st">"wooldridge"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>crime4 <span class="sc">%&gt;%</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">81</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(county,year) <span class="sc">%&gt;%</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(county, crmrte, prbarr) <span class="sc">%&gt;%</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">County =</span> county,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">CrimeRate =</span> crmrte,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">ProbofArrest =</span> prbarr) <span class="sc">%&gt;%</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">align =</span> <span class="st">"ccc"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: center;">County</th>
+<th style="text-align: center;">CrimeRate</th>
+<th style="text-align: center;">ProbofArrest</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0.0398849</td>
+<td style="text-align: center;">0.289696</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.0163921</td>
+<td style="text-align: center;">0.202899</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.0093372</td>
+<td style="text-align: center;">0.406593</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.0219159</td>
+<td style="text-align: center;">0.431095</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">0.0075178</td>
+<td style="text-align: center;">0.631579</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>We would have a unit identifier (like <code>County</code> here), and some observables on each unit. Such a dataset is usually called a <strong>cross-sectional</strong> dataset, providing one single snapshot view about variables from a study population at a single point in time. Each row, in other words, was one <em>observation</em>. <strong>Panel data</strong>, or <strong>longitudinal</strong> datasets, on the other hand, also index units over <em>time</em>. In the above dataset, for example, we could record crime rates in each county <em>and in each year</em>:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: center;">County</th>
+<th style="text-align: center;">Year</th>
+<th style="text-align: center;">CrimeRate</th>
+<th style="text-align: center;">ProbofArrest</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">81</td>
+<td style="text-align: center;">0.0398849</td>
+<td style="text-align: center;">0.289696</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">82</td>
+<td style="text-align: center;">0.0383449</td>
+<td style="text-align: center;">0.338111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">83</td>
+<td style="text-align: center;">0.0303048</td>
+<td style="text-align: center;">0.330449</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">84</td>
+<td style="text-align: center;">0.0347259</td>
+<td style="text-align: center;">0.362525</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">85</td>
+<td style="text-align: center;">0.0365730</td>
+<td style="text-align: center;">0.325395</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">86</td>
+<td style="text-align: center;">0.0347524</td>
+<td style="text-align: center;">0.326062</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">87</td>
+<td style="text-align: center;">0.0356036</td>
+<td style="text-align: center;">0.298270</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">81</td>
+<td style="text-align: center;">0.0163921</td>
+<td style="text-align: center;">0.202899</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">82</td>
+<td style="text-align: center;">0.0190651</td>
+<td style="text-align: center;">0.162218</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Here each unit <span class="math inline">i</span> (e.g.&nbsp;county <code>1</code>) is observed <em>several times</em>. Let’s start by looking at the dataset as a single cross section (i.e.&nbsp;we forget about the <span class="math inline">t</span> index and treat each observation as independent over time) and investigate the relationship between crime rates and probability of arrest in counties number <code>1,3,23,145</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>css <span class="ot">=</span> crime4 <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(county <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">145</span>, <span class="dv">23</span>))  <span class="co"># subset to 4 counties</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(css,<span class="fu">aes</span>(<span class="at">x =</span>  prbarr, <span class="at">y =</span> crmrte)) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>,<span class="at">se=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Probability of Arrest'</span>, <span class="at">y =</span> <span class="st">'Crime Rate'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-crime1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-crime1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="10-panel_files/figure-html/fig-crime1-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-crime1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.1: Probability of arrest vs Crime rates in the cross section
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We see an upward-sloping regression line, so it seems that the higher the crime rate, the higher the probability of arrest. In particular, we’d get:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>xsection <span class="ot">=</span> <span class="fu">lm</span>(crmrte <span class="sc">~</span> prbarr, css)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(xsection)[<span class="dv">2</span>]  <span class="co"># gets slope coef</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    prbarr 
+0.06480104 </code></pre>
+</div>
+</div>
+<p>such that we’d associate an increase of 10 percentage points in the probability of arrest (<code>prbarr</code> goes from 0.2 to 0.3) with an increase in crime rate from 0.021 to 0.028, or a 33.33 percent increase. Ok, but what does that <em>mean</em>? Literally, it tells us counties with a higher probability of being arrested also have a higher crime rate. So, does it mean that as there is more crime in certain areas, the police become more efficient at arresting criminals, and so the probability of getting arrested on any committed crime goes up? What does police efficiency depend on? Does the poverty level in a county matter for this? The local laws? 🤯 wow, there seem to be too many things left out of this simple picture. It’s impossible to decide whether this estimate <em>makes sense</em> or not like this. A DAG to the rescue!</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-cri-dag" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cri-dag-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="10-panel_files/figure-html/fig-cri-dag-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cri-dag-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.2: DAG to answer <em>what causes the local crime rate?</em>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In figure <a href="#fig-cri-dag" class="quarto-xref">Figure&nbsp;<span>11.2</span></a> we’ve written <code>LawAndOrder</code> for how committed local politicians are to <em>law and order politics</em>, and <code>LocalStuff</code> for everything that is unique to a particular county apart from the things we’ve listed. So, at least we can appreciate to full problem now, but it’s still really complicated. Let’s try to think about <em>at which level</em> (i.e.&nbsp;county or time) each of those factors <em>vary</em>:</p>
+<ul>
+<li><code>LocalStuff</code> are things that describe the County, like geography, and other persistent features.</li>
+<li><code>LawAndOrder</code> and how many <code>CivilRights</code> one gets might change a little from year to year, but not very drastically. Let’s assume they are fixed characteristics as well.</li>
+<li><code>Police</code> budget and the <code>Poverty</code> level vary by county and by year: an elected politician has some discretion over police spending (not too much, but still), and poverty varies with the national/global state of the economy.</li>
+</ul>
+<p>You will often hear the terms <em>within</em> and <em>between</em> variation in panel data contexts. If we think of our data as classified into groups of <span class="math inline">i</span> (i.e., counties), the <em>within</em> variation refers to things that change <em>within each group</em> over time: here we said police budgets and poverty levels would change within each group and over time. On the other hand, we said that <code>LocalStuff</code>, <code>LawAndOrder</code> and <code>CivilRights</code> were persistent features of each group, hence they would <em>not</em> vary over time (or <em>within</em> the group) - they would differ only across or <strong>between</strong> groups. Let’s try to separate those out visually!</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="10-panel_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>That looks intriguing! Let’s add the mean of <code>ProbofArrest</code> and <code>CrimeRate</code> for each of the counties to that plot, in order to show the <em>between</em> county variation:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="10-panel_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Simple OLS on the cross section (i.e.&nbsp;not taking into account the panel structure) seems to recover only the <em>between</em> group differences. It fits a line to the group means. Well this considerably simplifies our DAG from above! Let’s collect all group-specific time-invariant features in the factor <code>County</code> - we don’t really care about what they all are, because we can net the group effects out of the data it seems:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-cri-dag2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cri-dag2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="10-panel_files/figure-html/fig-cri-dag2-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cri-dag2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.3: DAG to answer <em>what causes the local crime rate?</em>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>So, controlling for <code>County</code> takes care of all factors which do <em>not</em> vary over time within each unit. Police and Poverty will have a specific County-specific mean value, but there will be variation over time. We will basically be able to compare each county with itself at different points in time.</p>
+</section>
+<section id="panel-data-estimation-with-r" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="panel-data-estimation-with-r"><span class="header-section-number">11.2</span> Panel Data Estimation with <code>R</code></h2>
+<p>We have now seen several instances of problems with simple OLS arising from <em>unobserved variable bias</em>. For example, if the true model read</p>
+<p><span class="math display">
+y_i = \beta_0 + \beta_1 x_i + c_i + u_i
+</span> with <span class="math inline">c_i</span> unobservable and potentially correlated with <span class="math inline">x_i</span>, we were in trouble because the orthogonality assumption <span class="math inline">E[u_i+c_i|x_i]\neq 0</span> (<span class="math inline">u_i+c_i</span> is the total unobserved component). We have seen such an example where <span class="math inline">c=A_i</span> and <span class="math inline">x=s</span> was schooling and we were worried about <em>ability bias</em>. One solution we discussed was to find an IV which is correlated with schooling (quarter of birth) - but not with ability (we thought ability is equally distributed across birthdates). Today we’ll look at solutions when we have <em>more than a single</em> observation for each unit <span class="math inline">i</span>. To be precise, let’s put down a basic unobserved effects model like this:</p>
+<p><span id="eq-panel"><span class="math display">
+y_{it} = \beta_1 x_{it} + c_i + u_{it},\quad t=1,2,...T
+\tag{11.1}</span></span></p>
+<p>The object of interest here is <span class="math inline">c_i</span>, called the <em>individual fixed effect</em>, <em>unobserved effect</em> or <em>unobserved heterogeneity</em>. The important thing to note is that it is fixed over time (ability <span class="math inline">A_i</span> for example).</p>
+<section id="dummy-variable-regression" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="dummy-variable-regression"><span class="header-section-number">11.2.1</span> Dummy Variable Regression</h3>
+<p>The simplest approach is arguably this: we could take the equation literally and estimate a linear model where we include a dummy variable for each <span class="math inline">i</span>. This is closest to what we said above is <em>controlling for county</em> - that’s exactly what we do here. You can see in <a href="#eq-panel" class="quarto-xref">Equation&nbsp;<span>11.1</span></a> that each <span class="math inline">i</span> has basically their own intercept <span class="math inline">c_i</span>, so this works. In <code>R</code> you achieve this like so:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">=</span> <span class="fu">list</span>()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mod<span class="sc">$</span>dummy <span class="ot">&lt;-</span> <span class="fu">lm</span>(crmrte <span class="sc">~</span> prbarr <span class="sc">+</span> <span class="fu">factor</span>(county), css)  <span class="co"># i is the unit ID</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(mod<span class="sc">$</span>dummy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 5
+  term              estimate std.error statistic  p.value
+  &lt;chr&gt;                &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept)        0.0449    0.00456      9.87 9.85e-10
+2 prbarr            -0.0284    0.0136      -2.08 4.86e- 2
+3 factor(county)3   -0.0250    0.00254     -9.82 1.07e- 9
+4 factor(county)23  -0.00850   0.00166     -5.13 3.41e- 5
+5 factor(county)145 -0.00650   0.00160     -4.07 4.70e- 4</code></pre>
+</div>
+</div>
+<p>Here is what we are talking about in a picture:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-dummy" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dummy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="10-panel_files/figure-html/fig-dummy-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dummy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.4: Dummy variable regression: parallel lines, one per county
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>It’s evident that <em>within</em> each county, there is a negative relationship. The dummy variable regression allows for different intercepts (county <code>1</code> is be the reference group), and one unique slope coefficient <span class="math inline">\beta</span>. (you observe that the lines are parallel).</p>
+<p>You can see from this by looking at the picture that what the dummies are doing is shifting their line down from the reference group 1.</p>
+</section>
+<section id="first-differencing" class="level3" data-number="11.2.2">
+<h3 data-number="11.2.2" class="anchored" data-anchor-id="first-differencing"><span class="header-section-number">11.2.2</span> First Differencing</h3>
+<p>If we only had <span class="math inline">T=2</span> periods, we could just difference both periods, basically leaving us with <span class="math display">
+\begin{align}
+y_{i1} &amp;= \beta_1 x_{i1} + c_i + u_{i1} \\
+y_{i2} &amp;= \beta_1 x_{i2} + c_i + u_{i2} \\
+       &amp; \Rightarrow \\
+y_{i1}-y_{i2} &amp;= \beta_1 (x_{i1} - x_{i2}) + c_i-c_i + u_{i1}-u_{i2} \\
+\Delta y_{i} &amp;= \beta_1 \Delta x_{i} + \Delta u_{i}
+\end{align}
+</span> where <span class="math inline">\Delta</span> means <em>difference over time of</em> and to recover the parameter of interest <span class="math inline">\beta_1</span> we would run</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(deltay <span class="sc">~</span> deltax, diff_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="the-within-transformation" class="level3" data-number="11.2.3">
+<h3 data-number="11.2.3" class="anchored" data-anchor-id="the-within-transformation"><span class="header-section-number">11.2.3</span> The Within Transformation</h3>
+<p>In cases with <span class="math inline">T&gt;2</span> we need a different approach - this is the most relevant case. One important concept is called the <em>within</em> transformation.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> This is directly related to our discussion from above when we simplified our DAG. So, <em>controlling for group identity and only looking at time variation</em> is what we said - let’s write it down! Here we denote as <span class="math inline">\bar{x}_i</span> the average <em>over time</em> of <span class="math inline">i</span>’s <span class="math inline">x</span> values:</p>
+<p><span class="math display">
+\bar{x}_i = \frac{1}{T} \sum_{t=1}^T x_{it}
+</span></p>
+<p>With this in hand, the transformation goes like this:</p>
+<ol type="1">
+<li>for all variables compute their time-mean for each unit <span class="math inline">i</span>: <span class="math inline">\bar{x}_i,\bar{y}_i</span> etc</li>
+<li>for each observation, substract that time mean from the actual value and define <span class="math inline">(x_{it} - \bar{x}_i),(y_{it}-\bar{y}_i)</span></li>
+<li>Finally, regress <span class="math inline">(x_{it} - \bar{x}_i)</span> on <span class="math inline">(y_{it}-\bar{y}_i)</span></li>
+</ol>
+<p>This <em>works</em> for our problem with fixed effect <span class="math inline">c_i</span> because <span class="math inline">c_i</span> is not time varying by assumption! hence it drops out:</p>
+<p><span class="math display">
+y_{it}-\bar{y}_i = \beta_1 (x_{it} - \bar{x}_i) + c_i - c_i + u_{it}-\bar{u}_i
+</span></p>
+<p>It’s easy to do yourself! First let’s compute the demeaned values:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cdata <span class="ot">&lt;-</span> css <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(county) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_crime =</span> <span class="fu">mean</span>(crmrte),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">mean_prob =</span> <span class="fu">mean</span>(prbarr)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">demeaned_crime =</span> crmrte <span class="sc">-</span> mean_crime,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">demeaned_prob =</span> prbarr <span class="sc">-</span> mean_prob)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Then lets run the models with OLS:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mod<span class="sc">$</span>xsect <span class="ot">&lt;-</span> <span class="fu">lm</span>(crmrte <span class="sc">~</span> prbarr, <span class="at">data =</span> cdata)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>mod<span class="sc">$</span>demeaned <span class="ot">&lt;-</span> <span class="fu">lm</span>(demeaned_crime <span class="sc">~</span> demeaned_prob, <span class="at">data =</span> cdata)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>gom <span class="ot">=</span> <span class="st">'DF|Deviance|AIC|BIC|p.value|se_type|R2 Adj. |statistic|Log.Lik.|Num.Obs.'</span>  <span class="co"># stuff to omit from table</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(mod[<span class="fu">c</span>(<span class="st">"xsect"</span>,<span class="st">"dummy"</span>,<span class="st">"demeaned"</span>)],</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">statistic =</span> <span class="st">'std.error'</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">coef_omit =</span> <span class="st">"factor"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                           <span class="at">gof_omit =</span> gom)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-panel-compare" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-compare-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;11.1: Comparing (biased) X-secional OLS, dummy variable and manual demeaning panel regressions
+</figcaption>
+<div aria-describedby="tbl-panel-compare-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_k792yswp3ci42xii47ez = TinyTable.createTableFunctions("tinytable_k792yswp3ci42xii47ez");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '10', j: 2 }, { i: '10', j: 3 }, { i: '10', j: 4 } ], css_id: 'tinytable_css_zenx891pyh9jzskoa51d',}, 
+          { positions: [ { i: '6', j: 2 }, { i: '6', j: 3 }, { i: '6', j: 4 } ], css_id: 'tinytable_css_6urkufk96z1c9s4y2iqk',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '1', j: 4 }, { i: '2', j: 4 }, { i: '3', j: 4 }, { i: '4', j: 4 }, { i: '5', j: 4 }, { i: '7', j: 4 }, { i: '8', j: 4 }, { i: '9', j: 4 } ], css_id: 'tinytable_css_ufrhdnha8nhekzmnglg3',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 } ], css_id: 'tinytable_css_rtoqjmpyxiadgv533vnv',}, 
+          { positions: [ { i: '10', j: 1 } ], css_id: 'tinytable_css_exo8hupt707q97uk2s3j',}, 
+          { positions: [ { i: '6', j: 1 } ], css_id: 'tinytable_css_59ut85d22j4z82euo2m5',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 } ], css_id: 'tinytable_css_k8jts32m5el9ahfewn2o',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_k13nysrhoar3v5shqd4b',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_k792yswp3ci42xii47ez.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+    <style>
+    /* tinytable css entries after */
+    #tinytable_k792yswp3ci42xii47ez td.tinytable_css_zenx891pyh9jzskoa51d, #tinytable_k792yswp3ci42xii47ez th.tinytable_css_zenx891pyh9jzskoa51d {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_k792yswp3ci42xii47ez td.tinytable_css_6urkufk96z1c9s4y2iqk, #tinytable_k792yswp3ci42xii47ez th.tinytable_css_6urkufk96z1c9s4y2iqk {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_k792yswp3ci42xii47ez td.tinytable_css_ufrhdnha8nhekzmnglg3, #tinytable_k792yswp3ci42xii47ez th.tinytable_css_ufrhdnha8nhekzmnglg3 { text-align: center }
+    #tinytable_k792yswp3ci42xii47ez td.tinytable_css_rtoqjmpyxiadgv533vnv, #tinytable_k792yswp3ci42xii47ez th.tinytable_css_rtoqjmpyxiadgv533vnv {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_k792yswp3ci42xii47ez td.tinytable_css_exo8hupt707q97uk2s3j, #tinytable_k792yswp3ci42xii47ez th.tinytable_css_exo8hupt707q97uk2s3j {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_k792yswp3ci42xii47ez td.tinytable_css_59ut85d22j4z82euo2m5, #tinytable_k792yswp3ci42xii47ez th.tinytable_css_59ut85d22j4z82euo2m5 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_k792yswp3ci42xii47ez td.tinytable_css_k8jts32m5el9ahfewn2o, #tinytable_k792yswp3ci42xii47ez th.tinytable_css_k8jts32m5el9ahfewn2o { text-align: left }
+    #tinytable_k792yswp3ci42xii47ez td.tinytable_css_k13nysrhoar3v5shqd4b, #tinytable_k792yswp3ci42xii47ez th.tinytable_css_k13nysrhoar3v5shqd4b {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_k792yswp3ci42xii47ez" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">xsect</th>
+                <th scope="col" data-row="0" data-col="3">dummy</th>
+                <th scope="col" data-row="0" data-col="4">demeaned</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">(Intercept)</td>
+                  <td data-row="1" data-col="2">0.009</td>
+                  <td data-row="1" data-col="3">0.045</td>
+                  <td data-row="1" data-col="4">0.000</td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1"></td>
+                  <td data-row="2" data-col="2">(0.005)</td>
+                  <td data-row="2" data-col="3">(0.005)</td>
+                  <td data-row="2" data-col="4">(0.001)</td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1">prbarr</td>
+                  <td data-row="3" data-col="2">0.065</td>
+                  <td data-row="3" data-col="3">-0.028</td>
+                  <td data-row="3" data-col="4"></td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1"></td>
+                  <td data-row="4" data-col="2">(0.016)</td>
+                  <td data-row="4" data-col="3">(0.014)</td>
+                  <td data-row="4" data-col="4"></td>
+                </tr>
+                <tr>
+                  <td data-row="5" data-col="1">demeaned_prob</td>
+                  <td data-row="5" data-col="2"></td>
+                  <td data-row="5" data-col="3"></td>
+                  <td data-row="5" data-col="4">-0.028</td>
+                </tr>
+                <tr>
+                  <td data-row="6" data-col="1"></td>
+                  <td data-row="6" data-col="2"></td>
+                  <td data-row="6" data-col="3"></td>
+                  <td data-row="6" data-col="4">(0.013)</td>
+                </tr>
+                <tr>
+                  <td data-row="7" data-col="1">R2</td>
+                  <td data-row="7" data-col="2">0.390</td>
+                  <td data-row="7" data-col="3">0.893</td>
+                  <td data-row="7" data-col="4">0.159</td>
+                </tr>
+                <tr>
+                  <td data-row="8" data-col="1">R2 Adj.</td>
+                  <td data-row="8" data-col="2">0.366</td>
+                  <td data-row="8" data-col="3">0.874</td>
+                  <td data-row="8" data-col="4">0.126</td>
+                </tr>
+                <tr>
+                  <td data-row="9" data-col="1">F</td>
+                  <td data-row="9" data-col="2">16.609</td>
+                  <td data-row="9" data-col="3">47.777</td>
+                  <td data-row="9" data-col="4">4.900</td>
+                </tr>
+                <tr>
+                  <td data-row="10" data-col="1">RMSE</td>
+                  <td data-row="10" data-col="2">0.01</td>
+                  <td data-row="10" data-col="3">0.00</td>
+                  <td data-row="10" data-col="4">0.00</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Notice how in table <a href="#tbl-panel-compare" class="quarto-xref">Table&nbsp;<span>11.1</span></a> the estimate for <code>prbarr</code> is positive in the cross-section, like in figure <a href="#fig-crime1" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>. If we take care of the unobservered heterogeneity <span class="math inline">c_i</span> either by including an intercept for each <span class="math inline">i</span> or by time-demeaning the data, we obtain the same estimate: -0.028 in both cases.</p>
+<p>We interpret those <em>within</em> estimates by imagining to look at a single unit <span class="math inline">i</span> and ask: <em>if the arrest probability in <span class="math inline">i</span> increases by 10 percentage points (i.e.&nbsp;from 0.2 to 0.3) from year <span class="math inline">t</span> to <span class="math inline">t+1</span>, we expect crimes per person to fall from 0.039 to 0.036, or by -7.69 percent</em> (in the reference county number 1).</p>
+</section>
+<section id="using-a-package" class="level3" data-number="11.2.4">
+<h3 data-number="11.2.4" class="anchored" data-anchor-id="using-a-package"><span class="header-section-number">11.2.4</span> Using a Package</h3>
+<p>In real life you will hardly ever perform the within-transformation by yourself and use a package instead. There are several options (<code>fixest</code> if fastest).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mod<span class="sc">$</span>FE <span class="ot">=</span> fixest<span class="sc">::</span><span class="fu">feols</span>(crmrte <span class="sc">~</span> prbarr <span class="sc">|</span> county, cdata)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>modelsummary<span class="sc">::</span><span class="fu">modelsummary</span>(mod[<span class="fu">c</span>(<span class="st">"xsect"</span>,<span class="st">"dummy"</span>,<span class="st">"demeaned"</span>,<span class="st">"FE"</span>)],</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">statistic =</span> <span class="st">'std.error'</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">title =</span> <span class="st">"Comparing (biased) X-secional OLS, dummy variable, manual demeaning and fixest  panel regressions"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">coef_omit =</span> <span class="st">"factor"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">gof_omit =</span> <span class="fu">paste</span>(gom,<span class="st">"Std. errors"</span>,<span class="st">"R2"</span>,<span class="at">sep =</span> <span class="st">"|"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script>
+
+    <script>
+      // Create table-specific functions using external factory
+      const tableFns_ex9vbsrcj7fqfgy034r5 = TinyTable.createTableFunctions("tinytable_ex9vbsrcj7fqfgy034r5");
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: '10', j: 2 }, { i: '10', j: 3 }, { i: '10', j: 4 }, { i: '10', j: 5 } ], css_id: 'tinytable_css_m4d1o0xqvt1yuc4a3awn',}, 
+          { positions: [ { i: '6', j: 2 }, { i: '6', j: 3 }, { i: '6', j: 4 }, { i: '6', j: 5 } ], css_id: 'tinytable_css_5p53wka8jhoavs35pj0p',}, 
+          { positions: [ { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '1', j: 4 }, { i: '2', j: 4 }, { i: '3', j: 4 }, { i: '4', j: 4 }, { i: '5', j: 4 }, { i: '7', j: 4 }, { i: '8', j: 4 }, { i: '9', j: 4 }, { i: '1', j: 5 }, { i: '2', j: 5 }, { i: '3', j: 5 }, { i: '4', j: 5 }, { i: '5', j: 5 }, { i: '7', j: 5 }, { i: '8', j: 5 }, { i: '9', j: 5 } ], css_id: 'tinytable_css_kgjhev213ahv3xdqg8ld',}, 
+          { positions: [ { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_p07ap0cbqemt1wygejr0',}, 
+          { positions: [ { i: '10', j: 1 } ], css_id: 'tinytable_css_34qxm64awkimj3bgg7qr',}, 
+          { positions: [ { i: '6', j: 1 } ], css_id: 'tinytable_css_t5mktelemfrwxq91o9qo',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 } ], css_id: 'tinytable_css_ll5d9wizx07pds38d0lf',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_ndsp37jc7s07addl8qhu',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  tableFns_ex9vbsrcj7fqfgy034r5.styleCell(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
+    <style>
+    /* tinytable css entries after */
+    #tinytable_ex9vbsrcj7fqfgy034r5 td.tinytable_css_m4d1o0xqvt1yuc4a3awn, #tinytable_ex9vbsrcj7fqfgy034r5 th.tinytable_css_m4d1o0xqvt1yuc4a3awn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_ex9vbsrcj7fqfgy034r5 td.tinytable_css_5p53wka8jhoavs35pj0p, #tinytable_ex9vbsrcj7fqfgy034r5 th.tinytable_css_5p53wka8jhoavs35pj0p {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_ex9vbsrcj7fqfgy034r5 td.tinytable_css_kgjhev213ahv3xdqg8ld, #tinytable_ex9vbsrcj7fqfgy034r5 th.tinytable_css_kgjhev213ahv3xdqg8ld { text-align: center }
+    #tinytable_ex9vbsrcj7fqfgy034r5 td.tinytable_css_p07ap0cbqemt1wygejr0, #tinytable_ex9vbsrcj7fqfgy034r5 th.tinytable_css_p07ap0cbqemt1wygejr0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: center }
+    #tinytable_ex9vbsrcj7fqfgy034r5 td.tinytable_css_34qxm64awkimj3bgg7qr, #tinytable_ex9vbsrcj7fqfgy034r5 th.tinytable_css_34qxm64awkimj3bgg7qr {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_ex9vbsrcj7fqfgy034r5 td.tinytable_css_t5mktelemfrwxq91o9qo, #tinytable_ex9vbsrcj7fqfgy034r5 th.tinytable_css_t5mktelemfrwxq91o9qo {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_ex9vbsrcj7fqfgy034r5 td.tinytable_css_ll5d9wizx07pds38d0lf, #tinytable_ex9vbsrcj7fqfgy034r5 th.tinytable_css_ll5d9wizx07pds38d0lf { text-align: left }
+    #tinytable_ex9vbsrcj7fqfgy034r5 td.tinytable_css_ndsp37jc7s07addl8qhu, #tinytable_ex9vbsrcj7fqfgy034r5 th.tinytable_css_ndsp37jc7s07addl8qhu {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    </style>
+    <div class="container">
+      <table class="tinytable" id="tinytable_ex9vbsrcj7fqfgy034r5" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <caption>Comparing (biased) X-secional OLS, dummy variable, manual demeaning and fixest  panel regressions</caption>
+        <thead>
+              <tr>
+                <th scope="col" data-row="0" data-col="1"> </th>
+                <th scope="col" data-row="0" data-col="2">xsect</th>
+                <th scope="col" data-row="0" data-col="3">dummy</th>
+                <th scope="col" data-row="0" data-col="4">demeaned</th>
+                <th scope="col" data-row="0" data-col="5">FE</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td data-row="1" data-col="1">(Intercept)</td>
+                  <td data-row="1" data-col="2">0.009</td>
+                  <td data-row="1" data-col="3">0.045</td>
+                  <td data-row="1" data-col="4">0.000</td>
+                  <td data-row="1" data-col="5"></td>
+                </tr>
+                <tr>
+                  <td data-row="2" data-col="1"></td>
+                  <td data-row="2" data-col="2">(0.005)</td>
+                  <td data-row="2" data-col="3">(0.005)</td>
+                  <td data-row="2" data-col="4">(0.001)</td>
+                  <td data-row="2" data-col="5"></td>
+                </tr>
+                <tr>
+                  <td data-row="3" data-col="1">prbarr</td>
+                  <td data-row="3" data-col="2">0.065</td>
+                  <td data-row="3" data-col="3">-0.028</td>
+                  <td data-row="3" data-col="4"></td>
+                  <td data-row="3" data-col="5">-0.028</td>
+                </tr>
+                <tr>
+                  <td data-row="4" data-col="1"></td>
+                  <td data-row="4" data-col="2">(0.016)</td>
+                  <td data-row="4" data-col="3">(0.014)</td>
+                  <td data-row="4" data-col="4"></td>
+                  <td data-row="4" data-col="5">(0.014)</td>
+                </tr>
+                <tr>
+                  <td data-row="5" data-col="1">demeaned_prob</td>
+                  <td data-row="5" data-col="2"></td>
+                  <td data-row="5" data-col="3"></td>
+                  <td data-row="5" data-col="4">-0.028</td>
+                  <td data-row="5" data-col="5"></td>
+                </tr>
+                <tr>
+                  <td data-row="6" data-col="1"></td>
+                  <td data-row="6" data-col="2"></td>
+                  <td data-row="6" data-col="3"></td>
+                  <td data-row="6" data-col="4">(0.013)</td>
+                  <td data-row="6" data-col="5"></td>
+                </tr>
+                <tr>
+                  <td data-row="7" data-col="1">F</td>
+                  <td data-row="7" data-col="2">16.609</td>
+                  <td data-row="7" data-col="3">47.777</td>
+                  <td data-row="7" data-col="4">4.900</td>
+                  <td data-row="7" data-col="5"></td>
+                </tr>
+                <tr>
+                  <td data-row="8" data-col="1">RMSE</td>
+                  <td data-row="8" data-col="2">0.01</td>
+                  <td data-row="8" data-col="3">0.00</td>
+                  <td data-row="8" data-col="4">0.00</td>
+                  <td data-row="8" data-col="5">0.00</td>
+                </tr>
+                <tr>
+                  <td data-row="9" data-col="1">Std.Errors</td>
+                  <td data-row="9" data-col="2"></td>
+                  <td data-row="9" data-col="3"></td>
+                  <td data-row="9" data-col="4"></td>
+                  <td data-row="9" data-col="5">IID</td>
+                </tr>
+                <tr>
+                  <td data-row="10" data-col="1">FE: county</td>
+                  <td data-row="10" data-col="2"></td>
+                  <td data-row="10" data-col="3"></td>
+                  <td data-row="10" data-col="4"></td>
+                  <td data-row="10" data-col="5">X</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+<p>Again, we get the same result as with manual demeaning 😅. Let’s finish off with a nice visualisation by <a href="http://nickchk.com">Nick C Huntington-Klein’s</a> which illustrates how the within transformation works in this example. If you look back at</p>
+<p><span class="math display">
+y_{it}-\bar{y}_i = \beta_1 (x_{it} - \bar{x}_i) + u_{it}-\bar{u}_i
+</span></p>
+<p>you can see that we perform a form of <strong>data centering</strong> in the within transformation: subtracting their respective time means from all variables means to center all variables! Here’s how this looks (only visible in HTML version online).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-anim" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="10-panel_files/figure-html/fig-anim-1.gif" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.5: Animation of a fixed effects panel data estimator: we remove <em>between group</em> variation and concentrate on <em>within group</em> variation only
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Different packages implement different flavours of this procedure, this is the main gist<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -645,13 +1364,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./09-potential-issues.html" class="pagination-link" aria-label="Causality">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Causality</span></span>
+      <a href="./13-star.html" class="pagination-link" aria-label="STAR Experiment">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">STAR Experiment</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./11-IV.html" class="pagination-link" aria-label="Instrumental Variables">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Instrumental Variables</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Instrumental Variables</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
