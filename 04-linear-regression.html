@@ -1499,9 +1499,12 @@ Figure&nbsp;4.5: The effect of log-transforming highly skewed data.
 </div>
 </div>
 <p>In the left panel of figure <a href="#fig-ceo-sal" class="quarto-xref">Figure&nbsp;<span>4.5</span></a> you clearly see that both <code>sales</code> and <code>salary</code> have very long right tails, as indicated by the rug plots on either axis. As a consequence, the points are clustered in the bottom left corner of the plot. We suspect a positive relationship, but it’s hard to see. Contrast this with the right panel, where both axis have been log transformed: the points are nicely spread out, clearly spelling out a positive correlation. Let’s see what this gives in a regression model!</p>
-<p><span class="math display">
-\operatorname{\widehat{logsalary}} = 4.82 + 0.26(\operatorname{\logsales})
-</span></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)    logsales 
+  4.8219965   0.2566717 </code></pre>
+</div>
+</div>
 <p>Refering back at table <a href="#tbl-loglog" class="quarto-xref">Table&nbsp;<span>4.1</span></a>, here we have a log-log specification. Therefore we interpret this regression as follows:</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
